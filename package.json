@@ -11,6 +11,6 @@
   "dependencies": {
     "express": "^4.14.0",
     "mysql": "^2.11.1",
-    "nodeadmin": "^0.1.2"
+    "sequelize": "^3.24.1"
   }
 }

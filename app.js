@@ -1,7 +1,6 @@
 var express= require('express');
 var app = express();
 
-var nodeadmin = require('nodeadmin');
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
@@ -11,7 +10,18 @@ app.listen(8000, function () {
   console.log('Example app listening on port 3000!');
 });
 
-app.use(nodeadmin(app));
+
+
+var sequelize = new Sequelize('movieapp', 'movieapp', 'cse135_Nodeapp', {
+  host: 'localhost',
+  dialect: 'mysql',
+  pool: {
+  	max: 5,
+  	min: 0,
+  	idle: 10000
+  },
+
+});
 
 
 // var http = require('http');

@@ -1,38 +1,26 @@
 var express= require('express');
+var path = require('path');
+// var favicon = require('serve-favicon');
 var Sequelize = require('sequelize')
+var jade = require('jade');
+var routes = require('./routes/index');
 
 var app = express();
 
-
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 // Establish mysql connection
 
-var sequelize = new Sequelize('movieapp', 'movieadmin', 'cse135_Nodeapp', {
-  host: 'localhost',
-  dialect: 'mysql',
-  pool: {
-  	max: 5,
-  	min: 0,
-  	idle: 10000
-  },
+app.use('/', routes);
 
-});
-
-
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
+// app.get('/', function (req, res) {
+//   res.send('Hello World!');
+// });
 
 app.listen(8000, function () {
   console.log('Example app listening on port 3000!');
   
-  sequelize
-  .authenticate()
-  .then(function(err) {
-    console.log('Connection has been established successfully.');
-  }, function (err) { 
-    console.log('Unable to connect to the database:', err);
-  });
+
 });
 
 

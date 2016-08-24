@@ -1,4 +1,6 @@
 var express= require('express');
+var Sequelize = require('sequelize')
+
 var app = express();
 
 

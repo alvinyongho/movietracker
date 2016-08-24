@@ -4,15 +4,8 @@ var Sequelize = require('sequelize')
 var app = express();
 
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
 
-app.listen(8000, function () {
-  console.log('Example app listening on port 3000!');
-});
-
-
+// Establish mysql connection
 
 var sequelize = new Sequelize('movieapp', 'movieapp', 'cse135_Nodeapp', {
   host: 'localhost',
@@ -24,6 +17,26 @@ var sequelize = new Sequelize('movieapp', 'movieapp', 'cse135_Nodeapp', {
   },
 
 });
+
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(8000, function () {
+  console.log('Example app listening on port 3000!');
+  
+  sequelize
+  .authenticate()
+  .then(function(err) {
+    console.log('Connection has been established successfully.');
+  }, function (err) { 
+    console.log('Unable to connect to the database:', err);
+  });
+});
+
+
+
 
 
 // var http = require('http');

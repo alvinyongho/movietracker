@@ -7,7 +7,7 @@ var app = express();
 
 // Establish mysql connection
 
-var sequelize = new Sequelize('movieapp', 'movieapp', 'cse135_Nodeapp', {
+var sequelize = new Sequelize('movieapp', 'movieadmin', 'cse135_Nodeapp', {
   host: 'localhost',
   dialect: 'mysql',
   pool: {

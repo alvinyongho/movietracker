@@ -21,20 +21,18 @@ router.post('/create', function(req, res) {
 
 
 router.post('/scrape', function(req, res) {
-  // models.Movie.create({
-  //   movie_title: req.body.movie_title,
-  //   studio: req.body.studio,
-  //   year: req.body.year,
-  //   box_office: req.body.box_office,
-  //   picture: req.body.picture
-  // }).then(function() {
+  models.Movie.create({
+    movie_title: req.body.movie_title,
+    studio: req.body.studio,
+    year: req.body.year,
+    box_office: req.body.box_office,
+    picture: req.body.picture
+  }).then(function() {
 
     console.log("Running scraping");
     res.redirect('/movietracker');
-  // });
+  });
 });
-
-
 
 
 router.get('/:movie_id/destroy', function(req, res) {

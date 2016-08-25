@@ -41,6 +41,13 @@ router.post('/scrape', function(req, res) {
               throw err;
           $ = cheerio.load(body);
           console.log(i);
+
+
+          $('#body table:nth-child(3) tbody tr td:nth-child(1) table tbody tr').each(
+            $(this).find('td').each(function() {
+              console.log($(this).text());
+            });
+          );
           // TODO: scraping goes here!
         }
       })(i));

@@ -36,8 +36,12 @@ router.post('/addimages', function(req, res){
     });
   };
 
-  download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
+  download('https://www.google.com/images/srpr/logo3w.png', '../public/images/google.png', function(){
     console.log('done');
+
+
+
+
     res.redirect('/movietracker');
   });
 

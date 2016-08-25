@@ -12,11 +12,4 @@ block content
 
   h2 Movies
 
-  ul
-  each movie in movies
-    li
-      = movie.movie_title
-      | &nbsp;
-      | (
-      a(href="/movies/" + movie.id + "/destroy") Destroy
-      | )
+

@@ -40,7 +40,7 @@ router.post('/scrape', function(req, res) {
           if (err)
               throw err;
           $ = cheerio.load(body);
-          console.log(i);
+          // console.log(i);
 
 
           // TODO: scraping goes here!

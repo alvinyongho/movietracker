@@ -36,19 +36,20 @@ router.post('/scrape', function(req, res) {
       var url = "http://www.boxofficemojo.com/alltime/world/?pagenum=" + i + "&p=.htm"
       console.log(url);
       request(url, (function(i){
-          return function(err, resp, body) {
-          if (err)
-              throw err;
-          $ = cheerio.load(body);
-          console.log(i);
+        return function(err, resp, body) {
+        if (err)
+            throw err;
+        $ = cheerio.load(body);
+        console.log(i);
 
 
-          $('#body table:nth-child(3) tbody tr td:nth-child(1) table tbody tr').each(
-            $(this).find('td').each(function() {
-              console.log($(this).text());
-            });
-          );
-          // TODO: scraping goes here!
+        // TODO: scraping goes here!
+        $('#body table:nth-child(3) tbody tr td:nth-child(1) table tbody tr').each(
+          $(this).find('td').each(function() {
+            console.log($(this).text());
+          });
+        );
+
         }
       })(i));
 

@@ -1,7 +1,7 @@
 var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
-
+var requests = require('requests');
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -28,6 +28,13 @@ router.post('/scrape', function(req, res) {
   //   box_office: req.body.box_office,
   //   picture: req.body.picture
   // }).then(function() {
+
+
+    request('http://www.google.com', function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        console.log(body) // Show the HTML for the Google homepage.
+      }
+    })
 
     console.log("Running scraping");
     res.redirect('/movietracker');

@@ -34,6 +34,7 @@ router.post('/scrape', function(req, res) {
     var i=0;
     for (i=0; i<7; i++){
       var url = "http://www.boxofficemojo.com/alltime/world/?pagenum=" + i + "&p=.htm"
+      console.log(url);
       request(url, function(err, resp, body) {
         if (err)
             throw err;

@@ -64,8 +64,8 @@ router.post('/scrape', function(req, res) {
                   temp_dictionary.studio = $(this).find('td:nth-child(2)').text().trim();
                   temp_dictionary.box_office = $(this).find('td:nth-child(3)').text().trim();
                   temp_dictionary.year = $(this).find('td:nth-child(8)').text().trim();
-                  json_output.push(temp_dictionary);
-
+                  //json_output.push(temp_dictionary);
+                  console.log("ADDING TO DATABASE: " + temp_dictionary)
 
 
                   models.Movie.create(temp_dictionary);

@@ -40,7 +40,7 @@ router.post('/scrape', function(req, res) {
       var url = "http://www.boxofficemojo.com/alltime/world/?pagenum=" + i + "&p=.htm"
       console.log(url);
       request(url, (function(i){
-          return function(err, resp, body) {
+          return function(err, resp, body, json_output) {
           if (err)
               throw err;
           $ = cheerio.load(body);
@@ -76,9 +76,6 @@ router.post('/scrape', function(req, res) {
 
     }
 
-    var result = JSON.stringify(json_output);
-
-    console.log(json_output.length);
 
 
     // request('http://www.google.com', function (error, response, body) {

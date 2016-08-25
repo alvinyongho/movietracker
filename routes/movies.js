@@ -76,7 +76,9 @@ router.post('/scrape', function(req, res) {
 
     }
 
-    console.log(json_output.toString());
+    var result = JSON.stringify(json_output);
+
+    console.log(result);
 
 
     // request('http://www.google.com', function (error, response, body) {

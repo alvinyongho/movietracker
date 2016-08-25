@@ -9,7 +9,11 @@ router.get('/', function(req, res, next) {
 
 router.post('/create', function(req, res) {
   models.Movie.create({
-    movie_title: req.body.movie_title
+    movie_title: req.body.movie_title,
+    studio: req.body.studio,
+    year: req.body.year,
+    box_office: req.body.box_office,
+    picture: req.body.picture
   }).then(function() {
     res.redirect('/movietracker');
   });

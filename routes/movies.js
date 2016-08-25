@@ -2,7 +2,7 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 
-router.post('/create', function(req, res) {
+router.post('/movie/create', function(req, res) {
   models.Movie.create({
     movie_title: req.body.username
   }).then(function() {

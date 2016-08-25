@@ -10,6 +10,10 @@ router.get('/', function(req, res) {
       // movies: movies
     // });
   });
+
+    (models.Movie.findAll().then(function(movies) {
+      console.log(JSON.stringify(movies))
+    }));
 });
 
 module.exports = router;

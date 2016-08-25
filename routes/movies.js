@@ -20,8 +20,6 @@ router.post('/create', function(req, res) {
 });
 
 
-
-
 router.post('/scrape', function(req, res) {
   // models.Movie.create({
   //   movie_title: req.body.movie_title,

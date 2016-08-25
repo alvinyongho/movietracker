@@ -55,7 +55,7 @@ router.post('/scrape', function(req, res) {
               $(this).find('tr:nth-child(1)').remove();
 
 
-              $(this).find('tr td:nth-child(1)').each(function() {
+              $(this).find('tr td:nth-child(2)').each(function() {
                   
                   console.log($(this).text().trim());
 

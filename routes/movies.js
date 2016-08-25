@@ -32,6 +32,8 @@ router.post('/scrape', function(req, res) {
     var request = require('request');
     var cheerio = require('cheerio');
     var i=0;
+
+    var myjsonvar=[];
     for (i=0; i<7; i++){
       var url = "http://www.boxofficemojo.com/alltime/world/?pagenum=" + i + "&p=.htm"
       console.log(url);
@@ -51,9 +53,11 @@ router.post('/scrape', function(req, res) {
           $('#body table:nth-child(3) td').each(function(movie_row) {
           
               $(this).find('tr:nth-child(1)').remove();
-              $(this).find('tr td').each(function(item_index) {
+
+
+              $(this).find('tr td:nth-child(1)').each(function() {
                   
-                  console.log(item_index + "@@@" + $(this).text().trim());
+                  console.log($(this).text().trim());
 
 
               });

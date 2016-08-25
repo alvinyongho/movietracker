@@ -60,10 +60,10 @@ router.post('/scrape', function(req, res) {
               $(this).find('tr').each(function() {
                   
 
-                  temp_dictionary.movie_title = $(this).find('td:nth-child(1)').trim();
-                  temp_dictionary.studio = $(this).find('td:nth-child(2)').trim();
-                  temp_dictionary.box_office = $(this).find('td:nth-child(3)').trim();
-                  temp_dictionary.year = $(this).find('td:nth-child(8)').trim();
+                  temp_dictionary.movie_title = $(this).find('td:nth-child(1)').text().trim();
+                  temp_dictionary.studio = $(this).find('td:nth-child(2)').text().trim();
+                  temp_dictionary.box_office = $(this).find('td:nth-child(3)').text().trim();
+                  temp_dictionary.year = $(this).find('td:nth-child(8)').text().trim();
 
                   console.log(temp_dictionary);
 

@@ -48,8 +48,8 @@ router.post('/scrape', function(req, res) {
 
 
 
-          $('#body table table').each(function(day) {
-              $(this).find('td').each(function() {
+          $('#body table tbody').each(function(day) {
+              $(this).find('tr').each(function() {
                   console.log($(this).text());
               });
           });

@@ -52,7 +52,7 @@ router.post('/scrape', function(req, res) {
           
               $(this).find('tr:nth-child(1)').remove();
               $(this).find('tr').each(function(item_index) {
-                  console.log(item_index + "@@@" + $(this).text().trim().replace(/\n/g, ","));
+                  console.log(item_index + "@@@" + $(this).text().trim());
 
 
               });

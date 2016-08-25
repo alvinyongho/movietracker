@@ -40,6 +40,9 @@ router.post('/addimages', function(req, res){
     console.log('done');
   });
 
+  res.redirect('/movietracker');
+
+
 
 
   // models.Movie.findAll().then(function(movies) {

@@ -2,6 +2,11 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 
+
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
 router.post('/create', function(req, res) {
   models.Movie.create({
     movie_title: req.body.movie_title

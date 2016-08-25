@@ -3,3 +3,8 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  h2 Creating a new user
+  form(action="/movie/create", method="post")
+    input(type="text", name="movie_title")
+    input(type="submit")

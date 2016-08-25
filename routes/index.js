@@ -4,9 +4,7 @@ var models = require('../models')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	models.Movie.findAll({
-
-  }).then(function(movies) {
+	models.Movie.findAll().then(function(movies) {
     res.render('index', {
       title: 'Movies',
       movies: movies

@@ -33,7 +33,9 @@ router.post('/scrape', function(req, res) {
     var cheerio = require('cheerio');
     var i=0;
 
-    var myjsonvar=[];
+    var json_output=[];
+    var temp_dictionary = {'movie_title': null, 'studio': null, 'year': null, 'box_office': null, 'picture':null};
+
     for (i=0; i<7; i++){
       var url = "http://www.boxofficemojo.com/alltime/world/?pagenum=" + i + "&p=.htm"
       console.log(url);
@@ -55,9 +57,15 @@ router.post('/scrape', function(req, res) {
               $(this).find('tr:nth-child(1)').remove();
 
 
-              $(this).find('tr td:nth-child(2)').each(function() {
+              $(this).find('tr').each(function() {
                   
-                  console.log($(this).text().trim());
+
+                  temp_dictionary.movie_title = $(this).find('td:nth-child(1)').trim();
+                  temp_dictionary.studio = $(this).find('td:nth-child(2)').trim();
+                  temp_dictionary.box_office = $(this).find('td:nth-child(3)').trim();
+                  temp_dictionary.year = $(this).find('td:nth-child(8)').trim();
+
+                  console.log(temp_dictionary);
 
 
               });

@@ -50,8 +50,8 @@ router.post('/scrape', function(req, res) {
 
           $('#body table:nth-child(3) td').each(function(movie_row) {
           
-              $(this).find('tr:nth-child(1)').remove(item_index);
-              $(this).find('tr').each(function() {
+              $(this).find('tr:nth-child(1)').remove();
+              $(this).find('tr').each(function(item_index) {
                   console.log(item_index + "@@@" + $(this).text().trim());
 
 

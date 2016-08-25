@@ -30,6 +30,7 @@ router.post('/scrape', function(req, res) {
 
 
     var request = require('request');
+    var cheerio = require('cheerio');
     var i=0;
     for (i=0; i<7; i++){
       var url = "http://www.boxofficemojo.com/alltime/world/?pagenum=" + i + "&p=.htm"

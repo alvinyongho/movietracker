@@ -29,7 +29,7 @@ router.post('/scrape', function(req, res) {
   // }).then(function() {
 
 
-    var request = require('request');
+    var request = require('then-request');
     var cheerio = require('cheerio');
     var i=0;
 
@@ -72,7 +72,7 @@ router.post('/scrape', function(req, res) {
           });
 
           }
-      })(i)).then(function(){ console.log(json_output) });
+      })(i)).done(function(){ console.log(json_output) });
 
     }
 

@@ -19,6 +19,38 @@ router.post('/create', function(req, res) {
 });
 
 
+
+
+router.post('/addimages', function(req, res){
+
+  // Download an image
+  var fs = require('fs'),
+  request = require('request');
+
+  var download = function(uri, filename, callback){
+    request.head(uri, function(err, res, body){
+      console.log('content-type:', res.headers['content-type']);
+      console.log('content-length:', res.headers['content-length']);
+
+      request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    });
+  };
+
+  download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
+    console.log('done');
+  });
+
+
+
+  // models.Movie.findAll().then(function(movies) {
+
+  // }
+
+});
+
+
+
+
 router.post('/scrape', function(req, res) {
   // models.Movie.create({
   //   movie_title: req.body.movie_title,
@@ -44,12 +76,6 @@ router.post('/scrape', function(req, res) {
           if (err)
               throw err;
           $ = cheerio.load(body);
-          // console.log(i);
-
-
-          // TODO: scraping goes here!
-
-
 
 
           $('#body table:nth-child(3) td').each(function(movie_row) {
@@ -69,9 +95,6 @@ router.post('/scrape', function(req, res) {
 
 
                   models.Movie.create(temp_dictionary);
-
-
-                  // console.log('the output:   ' + json_output);
 
 
               });

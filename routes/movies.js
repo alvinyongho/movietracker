@@ -68,9 +68,7 @@ router.post('/scrape', function(req, res) {
 
 
 
-                  models.Movie.create(temp_dictionary).then(function() {
-                    continue;
-                  });
+                  models.Movie.create(temp_dictionary);
 
 
                   // console.log('the output:   ' + json_output);

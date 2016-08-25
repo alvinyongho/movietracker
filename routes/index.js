@@ -3,7 +3,15 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+	models.Movie.findAll({
+
+  }).then(function(movies) {
+    res.render('index', {
+      title: 'Movies',
+      movies: movies
+    });
+  });
+
 });
 
 module.exports = router;

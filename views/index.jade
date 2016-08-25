@@ -4,7 +4,19 @@ block content
   h1= title
   p Welcome to #{title}
 
-  h2 Creating a new user
+  h2 Creating a new Movie
   form(action="/movies/create", method="post")
     input(type="text", name="movie_title")
     input(type="submit")
+
+
+  h2 Movies
+
+  ul
+  each movie in movies
+    li
+      = movie.movie_title
+      | &nbsp;
+      | (
+      a(href="/movies/" + movie.id + "/destroy") Destroy
+      | )

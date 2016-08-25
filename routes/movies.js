@@ -48,11 +48,11 @@ router.post('/scrape', function(req, res) {
 
 
 
-          $('#body table:nth-child(3) td').each(function(day) {
+          $('#body table:nth-child(3) td').each(function(current_index) {
           
               $(this).find('tr:nth-child(1)').remove();
               $(this).find('tr').each(function() {
-                  console.log($(this).text().trim());
+                  console.log(current_index + "," + $(this).text().trim());
 
 
               });

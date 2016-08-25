@@ -48,11 +48,11 @@ router.post('/scrape', function(req, res) {
 
 
 
-          $('#body table:nth-child(3) td').each(function(current_index) {
+          $('#body table:nth-child(3) td').each(function(movie_row) {
           
-              $(this).find('tr:nth-child(1)').remove();
+              $(this).find('tr:nth-child(1)').remove(item_index);
               $(this).find('tr').each(function() {
-                  console.log(current_index + "," + $(this).text().trim());
+                  console.log(item_index + "@@@" + $(this).text().trim());
 
 
               });

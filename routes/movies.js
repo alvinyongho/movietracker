@@ -15,7 +15,7 @@ router.post('/create', multer({ dest: './uploads/'}).single('picture'), function
   models.Movie.create({
     movie_title: req.body.movie_title,
     studio: req.body.studio,
-    year: req.body.year,;
+    year: req.body.year,
     box_office: req.body.box_office,
     picture: req.body.picture
   }).then(function() {

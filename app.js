@@ -30,7 +30,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/movies', movies);
 
-app.use(multer({dest:'./uploads/'}).single('picture'));
+// app.use(multer({dest:'./uploads/'}).single('picture'));
 
 
 // catch 404 and forward to error handler

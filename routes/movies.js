@@ -1,12 +1,13 @@
 var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
+var multer = require('multer');
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/create', function(req, res) {
+router.post('/create', multer({ dest: './uploads/'}).single('picture'), function(req, res) {
   
   // console.dir(req.file);
   console.log(req.file);
@@ -14,7 +15,7 @@ router.post('/create', function(req, res) {
   models.Movie.create({
     movie_title: req.body.movie_title,
     studio: req.body.studio,
-    year: req.body.year,
+    year: req.body.year,;
     box_office: req.body.box_office,
     picture: req.body.picture
   }).then(function() {

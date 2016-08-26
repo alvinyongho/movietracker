@@ -30,6 +30,9 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/movies', movies);
 
+app.use(multer({dest:'./uploads/'}).single('picture'));
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

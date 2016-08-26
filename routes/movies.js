@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/create', function(req, res) {
   
-  console.dir(req.file);
-  // console.log(req.file);
+  // console.dir(req.file);
+  console.log(req.file);
 
   models.Movie.create({
     movie_title: req.body.movie_title,

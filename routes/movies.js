@@ -2,28 +2,17 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 
-
-
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
 router.post('/create', function(req, res) {
-  var picture;
-
-  if(!req.files){
-    res.send('no files uploaded.');
-    return;
-  }
-
-  console.dir(req.files);
-
   models.Movie.create({
     movie_title: req.body.movie_title,
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: '/testdir/filename.png'
+    picture: req.body.picture
   }).then(function() {
     res.redirect('/movietracker');
   });

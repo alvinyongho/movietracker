@@ -15,7 +15,7 @@ router.post('/create', function(req, res) {
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: req.body.picture
+    picture: req.files.picture
   }).then(function() {
     res.redirect('/movietracker');
   });

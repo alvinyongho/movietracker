@@ -9,9 +9,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var movies = require('./routes/movies');
 
-var multer = require('multer');
-
-
 var app = express();
 
 // view engine setup
@@ -29,9 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/movies', movies);
-
-// app.use(multer({dest:'./uploads/'}).single('picture'));
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

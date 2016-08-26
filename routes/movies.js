@@ -10,12 +10,29 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/create', function(req, res) {
+  var picture;
+
+  if(!req.files){
+    res.send('no files uploaded.');
+    return;
+  }
+
+  picture = req.files.picture;
+  picture.mv('/testdir/filename.png', function(err) {
+    if(err){
+      res.status(500).send(err);
+    } else {
+      res.send('File uploaded!');
+    }
+
+  });
+
   models.Movie.create({
     movie_title: req.body.movie_title,
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: req.files.picture
+    picture: '/testdir/filename.png'
   }).then(function() {
     res.redirect('/movietracker');
   });

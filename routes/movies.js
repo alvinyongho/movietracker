@@ -1,6 +1,9 @@
 var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
+var fileUpload = require('express-fileupload');
+
+
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -36,7 +39,7 @@ router.post('/addimages', function(req, res){
     });
   };
 
-  download('https://www.google.com/images/srpr/logo3w.png', '../public/images/google.png', function(){
+  download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
     console.log('done');
 
 

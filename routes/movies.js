@@ -7,6 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/create', function(req, res) {
+  
+  console.dir(req.files);
+
   models.Movie.create({
     movie_title: req.body.movie_title,
     studio: req.body.studio,

@@ -17,7 +17,7 @@ router.post('/create', multer({ dest: './uploads/'}).single('picture'), function
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: req.body.picture
+    picture: req.file['filename']
   }).then(function() {
     res.redirect('/movietracker');
   });

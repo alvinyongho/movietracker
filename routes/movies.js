@@ -1,7 +1,6 @@
 var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
-var fileUpload = require('express-fileupload');
 
 
 
@@ -17,15 +16,7 @@ router.post('/create', function(req, res) {
     return;
   }
 
-  picture = req.files.picture;
-  picture.mv('/testdir/filename.png', function(err) {
-    if(err){
-      res.status(500).send(err);
-    } else {
-      res.send('File uploaded!');
-    }
-
-  });
+  console.dir(req.files);
 
   models.Movie.create({
     movie_title: req.body.movie_title,

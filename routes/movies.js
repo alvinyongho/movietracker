@@ -74,6 +74,32 @@ router.post('/addimages', function(req, res){
           console.log('couldn find url');
         } else {
           console.log(poster_url);
+          console.log(result.id);
+
+
+              // Movie.update(
+
+              //   // Set Attribute values 
+              //         { picture:poster_url },
+
+              //   // Where clause / criteria 
+              //          { _id : result['id'] }     
+
+              //  ).success(function() { 
+
+              //      console.log("Project with id"  + result['id'] + " updated successfully!");
+
+              //  }).error(function(err) { 
+
+              //      console.log("Project update failed !");
+              //      //handle error here
+
+              //  });
+
+
+
+
+
         }
         // console.log(body['Search'][0]['Poster']);
       } catch(err) {

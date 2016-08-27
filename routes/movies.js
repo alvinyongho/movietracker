@@ -59,11 +59,7 @@ var update_movie_attributes = function(movie, full_file_path, result_id){
   movie.update(
     { picture:full_file_path },
     { _id : result_id }     
-  ).success(function() { 
-      console.log("Project with id "  + result_id + " updated successfully!");
-  }).error(function(err) { 
-      console.log("Project update failed !");
-  });
+  );
 }
 
 

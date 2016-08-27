@@ -37,7 +37,5 @@ block content
     tr
       td= movie.movie_title
       td
-      | &nbsp;
-      | (
-      a(href="/movies/" + movie.id + "/destroy") Destroy
-      | )
+        a(href="/movies/" + movie.id + "/destroy") Destroy
+      

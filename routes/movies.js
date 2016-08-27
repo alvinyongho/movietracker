@@ -47,11 +47,29 @@ router.post('/addimages', function(req, res){
   var fs = require('fs'),
   request = require('request');
   
-  var url = "http://www.omdbapi.com/?s=Batman";
+  var url = "http://www.omdbapi.com/?s=";
+  var movie_title = "";
 
-  request.get({url:url, json:true}, function (e, r, body) {
-      console.log(body['Search'][0]['Poster']);
-    })
+  // request.get({url:url, json:true}, function (e, r, body) {
+  //     console.log(body['Search'][0]['Poster']);
+  //   })
+
+
+  models.Movie.findAll().then(function(movies) {
+    for (movie in movies){
+      
+      movie_title = movie.movie_title;
+      var result_url = url+movie_title;
+      request.get({url:url, json:true}, function (e, r, body) {
+        console.log(body['Search'][0]['Poster']);
+      })
+
+      // movie.update({
+
+      // });
+
+    }
+  });
 
 
 

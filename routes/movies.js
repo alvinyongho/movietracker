@@ -6,9 +6,10 @@ var path = require('path')
 const crypto = require('crypto');
 var async = require('async');
 
+var upload_dir = 'public/images/uploads/';
 
 var storage = multer.diskStorage({
-  destination: 'public/images/uploads/',
+  destination: upload_dir,
   filename: function (req, file, cb) {
     crypto.pseudoRandomBytes(16, function (err, raw) {
       if (err) return cb(err)
@@ -33,7 +34,7 @@ router.post('/create', multer({ storage: storage}).single('picture'), function(r
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: result_name
+    picture: upload_dir + result_name
   }).then(function() {
     res.redirect('/movietracker');
   });

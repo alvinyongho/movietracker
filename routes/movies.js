@@ -2,12 +2,26 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 var multer = require('multer');
+var path = require('path')
+
+
+var storage = multer.diskStorage({
+  destination: './uploads/',
+  filename: function (req, file, cb) {
+    crypto.pseudoRandomBytes(16, function (err, raw) {
+      if (err) return cb(err)
+
+      cb(null, raw.toString('hex') + path.extname(file.originalname))
+    })
+  }
+})
+
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/create', multer({ dest: './uploads/'}).single('picture'), function(req, res) {
+router.post('/create', multer({ dest: storage}).single('picture'), function(req, res) {
   
   // console.dir(req.file);
   var result_name = req.file['filename'];

@@ -215,7 +215,7 @@ router.get('/:movie_id/update', multer({ storage: storage}).single('picture'), f
 
 router.get('/:movie_id', function(req, res) {
   
-  models.Movie.get(req.params.movie_id).then(function(movies) {
+  models.Movie.findById(req.params.movie_id).then(function(movies) {
     res.render('movie-edit', {
       title: 'movie edit',
       movie: movie

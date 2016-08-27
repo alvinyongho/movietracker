@@ -62,10 +62,10 @@ router.post('/addimages', function(req, res){
     var q = async.queue(function (task, callback) {
         request.get({url:task.url, json:true}, function (e, r, body) {
           console.log(body['Search'][0]['Poster']);
-        })
+        });
 
         callback();
-        } 
+        }
     }, N);
 
     q.drain = function() {

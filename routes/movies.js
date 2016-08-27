@@ -54,6 +54,19 @@ var download = function(uri, filename, callback){
 };
 
 
+
+var update_movie_attributes = function(full_file_path, result_id){
+  movie.update(
+    { picture:full_file_path },
+    { _id : result_id }     
+  ).success(function() { 
+      console.log("Project with id "  + result_id + " updated successfully!");
+  }).error(function(err) { 
+      console.log("Project update failed !");
+  });
+}
+
+
 router.post('/addimages', function(req, res){
 
   // Download an image
@@ -92,16 +105,7 @@ router.post('/addimages', function(req, res){
 
           var full_file_path = 'public/images/uploads/' + path.parse(poster_url).base;
           download(poster_url, full_file_path, function(){
-            console.log('done');
-
-            movie.update(
-              { picture:full_file_path },
-              { _id : result.id }     
-            ).success(function() { 
-                console.log("Project with id "  + result.id + " updated successfully!");
-            }).error(function(err) { 
-                console.log("Project update failed !");
-            });
+            console.log('done i can now add to result id ' + result.id);
           });
 
           // console.log("public/images/uploads/" + path.parse(poster_url).base);
@@ -120,7 +124,7 @@ router.post('/addimages', function(req, res){
         }
         // console.log(body['Search'][0]['Poster']);
       } catch(err) {
-        console.log(err);
+        // console.log(err);
         console.log('couldn not find url');
       }
     });

@@ -33,9 +33,17 @@ block content
   h2 Movies
 
   table
+    tr
+      th Movie Title
+      th Studio
+      th Year
+      th Box Office
+      th Picture
+
   each movie in movies
     tr
       td= movie.movie_title
-      td
-        a(href="/movies/" + movie.id + "/destroy") Destroy
-      
+      td= movie.studio
+      td= movie.year
+      td= movie.box_office
+      td= movie.picture

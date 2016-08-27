@@ -66,8 +66,12 @@ router.post('/addimages', function(req, res){
     // var result_url = url+movie_title;
     request.get({url:result_url, json:true}, function (e, r, body) {
       
-      if(body['Search'] != 'undefined'){
+      // if(body['Search'] != 'undefined'){
+
+        try {
         console.log(body['Search'][0]['Poster']);
+      } catch {
+        console.log('couldn not find url');
       }
     });
 

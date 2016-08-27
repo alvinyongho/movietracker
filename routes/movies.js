@@ -206,12 +206,26 @@ router.get('/:movie_id/update', multer({ storage: storage}).single('picture'), f
     where: {
       id: req.params.movie_id
     }
-    
+
   }).then(function() {
     res.redirect('/movietracker');
   });
 });
 
+
+router.get('/:movie_id', function(req, res) {
+  
+  models.Movie.get(req.params.movie_id).then(function(movies) {
+    res.render('movie-edit', {
+      title: 'movie edit',
+      movie: movie
+    });
+  });
+
+    // (models.Movie.findAll().then(function(movies) {
+    //   console.log(JSON.stringify(movies))
+    // }));
+});
 
 
 module.exports = router;

@@ -55,9 +55,12 @@ router.post('/addimages', function(req, res){
   //     console.log(body['Search'][0]['Poster']);
   //   })
 
+  var retrieve_image_url = function(movie){
+    console.dir(movie.get());
+  }
 
   models.Movie.findAll().then(function(movies){
-
+    movies.foreach(retrieve_image_url)
   });
 
 

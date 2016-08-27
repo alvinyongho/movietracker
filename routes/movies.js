@@ -56,53 +56,32 @@ router.post('/addimages', function(req, res){
 
 
   models.Movie.findAll().then(function(movies) {
-    for (movie in movies){
-        function (movie){
+    
 
-        movie_title = movie.movie_title;
-        var result_url = url+movie_title;
-        request.get({url:result_url, json:true}, function (e, r, body) {
+    var N = 1;
+    var q = async.queue(function (task, callback) {
+        request.get({url:task.url, json:true}, function (e, r, body) {
           console.log(body['Search'][0]['Poster']);
         })
 
-        }()
-      // movie.update({
+        callback();
+        } 
+    }, N);
 
-      // });
-
+    q.drain = function() {
+        console.log('all items have been processed');
     }
+
+    for (movie in movies){
+      movie_title = movie.movie_title;
+      var result_url = url+movie_title;
+      q.push({url:result_url});
+    }
+
+
   });
-
-
-
-
-  // var download = function(uri, filename, callback){
-  //   request.head(uri, function(err, res, body){
-  //     console.log('content-type:', res.headers['content-type']);
-  //     console.log('content-length:', res.headers['content-length']);
-
-  //     request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-  //   });
-  // };
-
-  // download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
-  //   console.log('done');
-
-
-
-
-  //   res.redirect('/movietracker');
-  // });
-
-
-
-
       res.redirect('/movietracker');
 
-
-  // models.Movie.findAll().then(function(movies) {
-
-  // }
 
 });
 

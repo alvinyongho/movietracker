@@ -11,8 +11,16 @@ block content
   form(method="post", action="/#{movie._id/update")
   input(type="hidden", name="_method", value="PUT")
 
-  label(for="title")
+  p Movie Title:
   input(type="text", name="movie_title", value="#{movie.movie_title}")
+  p Studio:
+  input(type="text", name="studio", value="#{movie.studio}")
+  p Year:
+  input(type="text", name="year", value="#{movie.year}")
+  p Box Office $$$:
+  input(type="text", name="box_office", value="#{movie.box_office}")
+  p Picture:
+  input(type="file", name="picture", value="#{movie.picture}")
   br
 
   input(type="submit", name="submit")

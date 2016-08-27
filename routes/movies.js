@@ -35,7 +35,7 @@ router.post('/addimages', function(req, res){
   var url = "http://www.omdbapi.com/?s=Batman";
 
   request.get({url:url, json:true}, function (e, r, body) {
-      console.log(body['Search'][0]);
+      console.log(body['Search'][0]['Poster']);
     })
 
 

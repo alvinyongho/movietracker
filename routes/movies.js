@@ -4,6 +4,7 @@ var router  = express.Router();
 var multer = require('multer');
 var path = require('path')
 const crypto = require('crypto');
+var async = require('async');
 
 
 var storage = multer.diskStorage({

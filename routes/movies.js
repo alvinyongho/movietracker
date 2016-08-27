@@ -34,7 +34,7 @@ router.post('/create', multer({ storage: storage}).single('picture'), function(r
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: upload_dir + result_name
+    picture: 'images/uploads/' + result_name
   }).then(function() {
     res.redirect('/movietracker');
   });
@@ -103,7 +103,7 @@ router.post('/addimages', function(req, res){
           var full_file_path = 'public/images/uploads/' + path.parse(poster_url).base;
           download(poster_url, full_file_path, function(){
             console.log('done i can now add to result id ' + result.id);
-            update_movie_attributes(movie, full_file_path, result.id);
+            update_movie_attributes(movie, 'images/uploads/' + path.parse(poster_url).base, result.id);
           });
 
           // console.log("public/images/uploads/" + path.parse(poster_url).base);

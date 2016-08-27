@@ -60,7 +60,7 @@ router.post('/addimages', function(req, res){
   }
 
   models.Movie.findAll().then(function(movies){
-    movies.foreach(retrieve_image_url)
+    movies.forEach(retrieve_image_url)
   });
 
 

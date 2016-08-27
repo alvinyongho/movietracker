@@ -70,7 +70,7 @@ router.post('/addimages', function(req, res){
 
         try {
         console.log(body['Search'][0]['Poster']);
-      } catch {
+      } catch(err) {
         console.log('couldn not find url');
       }
     });

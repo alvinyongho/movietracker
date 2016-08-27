@@ -32,9 +32,6 @@ router.post('/addimages', function(req, res){
   var fs = require('fs'),
   request = require('request');
 
-
-  console.log('Let us begin adding images');
-
   // var download = function(uri, filename, callback){
   //   request.head(uri, function(err, res, body){
   //     console.log('content-type:', res.headers['content-type']);
@@ -50,12 +47,13 @@ router.post('/addimages', function(req, res){
 
 
 
-    res.redirect('/movietracker');
-  });
+  //   res.redirect('/movietracker');
+  // });
 
 
 
 
+      res.redirect('/movietracker');
 
 
   // models.Movie.findAll().then(function(movies) {

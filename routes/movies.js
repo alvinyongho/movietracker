@@ -91,7 +91,7 @@ router.post('/addimages', function(req, res){
             });
           };
 
-          download(poster_url, "public/images/uploads/" + path.parse(poaster_url).base;, function(){
+          download(poster_url, "public/images/uploads/" + path.parse(poaster_url).base, function(){
             console.log('done');
           });
 

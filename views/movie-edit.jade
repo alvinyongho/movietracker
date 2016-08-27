@@ -5,3 +5,17 @@ block content
 
 
   = movie.movie_title
+
+  h2 Edit Movie
+  form(action="update", method="post", enctype="multipart/form-data")
+    p Movie Title:
+    input(type="text", name="movie_title")
+    p Studio:
+    input(type="text", name="studio")
+    p Year:
+    input(type="text", name="year")
+    p Box Office $:
+    input(type="text", name="box_office")
+    p Picture:
+    input(type="file", name="picture")
+    input(type="submit")

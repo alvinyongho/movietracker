@@ -95,7 +95,7 @@ router.post('/addimages', function(req, res){
           //   console.log('done');
           // });
 
-          console.log("public/images/uploads/" + path.parse(poaster_url).base);
+          console.log("public/images/uploads/" + path.parse(poster_url).base);
 
 
 

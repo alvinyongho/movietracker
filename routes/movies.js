@@ -68,8 +68,14 @@ router.post('/addimages', function(req, res){
       
       // if(body['Search'] != 'undefined'){
 
-        try {
-        console.log(body['Search'][0]['Poster']);
+      try {
+        var poster_url = body['Search'][0]['Poster'];
+        if ( poster_url == "N/A"){
+          console.log('couldn find url');
+        } else {
+          console.log(poster_url);
+        }
+        // console.log(body['Search'][0]['Poster']);
       } catch(err) {
         console.log('couldn not find url');
       }

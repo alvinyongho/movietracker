@@ -63,7 +63,10 @@ router.post('/addimages', function(req, res){
     var q = async.queue(function (task, callback) {
       
 
-      request.get({url:task.url, json:true}, function (e, r, body) {
+      var movie_title = task.movie.movie_title
+      // movie_title = movie.movie_title;
+      var result_url = url+movie_title;
+      request.get({url:result_url, json:true}, function (e, r, body) {
         console.log(body['Search'][0]['Poster']);
         callback();
       });
@@ -75,9 +78,8 @@ router.post('/addimages', function(req, res){
     }
 
     for (movie in movies){
-      movie_title = movie.movie_title;
-      var result_url = url+movie_title;
-      q.push({url:result_url});
+
+      q.push({movie:movie});
     }
 
 

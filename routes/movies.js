@@ -82,20 +82,20 @@ router.post('/addimages', function(req, res){
             request = require('request');
             path = require('path');
 
-          // var download = function(uri, filename, callback){
-          //   request.head(uri, function(err, res, body){
-          //     console.log('content-type:', res.headers['content-type']);
-          //     console.log('content-length:', res.headers['content-length']);
+          var download = function(uri, filename, callback){
+            request.head(uri, function(err, res, body){
+              console.log('content-type:', res.headers['content-type']);
+              console.log('content-length:', res.headers['content-length']);
 
-          //     request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-          //   });
-          // };
+              request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+            });
+          };
 
-          // download(poster_url, "public/images/uploads/" + path.parse(poaster_url).base, function(){
-          //   console.log('done');
-          // });
+          download(poster_url, "public/images/uploads/" + path.parse(poster_url).base, function(){
+            console.log('done');
+          });
 
-          console.log("public/images/uploads/" + path.parse(poster_url).base);
+          // console.log("public/images/uploads/" + path.parse(poster_url).base);
 
 
 

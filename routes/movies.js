@@ -63,11 +63,13 @@ router.post('/addimages', function(req, res){
     var q = async.queue(function (task, callback) {
       
 
-      var movie_title = task.movie.movie_title
+      var movie_title = task.movie.movie_title;
+
+      console.log(task.movie.movie_title);
       // movie_title = movie.movie_title;
       var result_url = url+movie_title;
       request.get({url:result_url, json:true}, function (e, r, body) {
-        console.log(body['Search'][0]['Poster']);
+        // console.log(body['Search'][0]['Poster']);
         callback();
       });
     

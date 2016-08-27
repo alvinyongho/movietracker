@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/create', multer({ dest: storage}).single('picture'), function(req, res) {
+router.post('/create', multer({ storage: storage}).single('picture'), function(req, res) {
   
   // console.dir(req.file);
   var result_name = req.file['filename'];

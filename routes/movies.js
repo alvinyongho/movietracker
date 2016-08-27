@@ -192,4 +192,26 @@ router.get('/:movie_id/destroy', function(req, res) {
 
 
 
+router.get('/:movie_id/update', multer({ storage: storage}).single('picture'), function(req, res) {
+  
+  var result_name = req.file['filename'];
+  models.Movie.update({
+
+    movie_title: req.body.movie_title,
+    studio: req.body.studio,
+    year: req.body.year,
+    box_office: req.body.box_office,
+    picture: result_name,
+
+    where: {
+      id: req.params.movie_id
+    }
+    
+  }).then(function() {
+    res.redirect('/movietracker');
+  });
+});
+
+
+
 module.exports = router;

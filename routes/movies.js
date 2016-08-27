@@ -31,6 +31,15 @@ router.post('/addimages', function(req, res){
   // Download an image
   var fs = require('fs'),
   request = require('request');
+  
+  var url = "http://www.omdbapi.com/?s=Batman";
+
+  request.get({url:url, json:true}, function (e, r, body) {
+      console.log(body)
+    })
+
+
+
 
   // var download = function(uri, filename, callback){
   //   request.head(uri, function(err, res, body){

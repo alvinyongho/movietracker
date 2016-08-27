@@ -58,12 +58,14 @@ router.post('/addimages', function(req, res){
   models.Movie.findAll().then(function(movies) {
     for (movie in movies){
       
-      movie_title = movie.movie_title;
-      var result_url = url+movie_title;
-      request.get({url:result_url, json:true}, function (e, r, body) {
-        console.log(body['Search'][0]['Poster']);
-      })
+      function(movie){
+        movie_title = movie.movie_title;
+        var result_url = url+movie_title;
+        request.get({url:result_url, json:true}, function (e, r, body) {
+          console.log(body['Search'][0]['Poster']);
+        })
 
+      }
       // movie.update({
 
       // });

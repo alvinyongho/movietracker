@@ -56,7 +56,9 @@ router.post('/addimages', function(req, res){
   //   })
 
 
-  models.Movie.findAll();
+  models.Movie.findAll().then(function(movies){
+
+  });
 
 
   

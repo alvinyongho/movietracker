@@ -60,12 +60,13 @@ router.post('/addimages', function(req, res){
 
     var N = 1;
     var q = async.queue(function (task, callback) {
-        request.get({url:task.url, json:true}, function (e, r, body) {
-          console.log(body['Search'][0]['Poster']);
-        });
+      
 
+      request.get({url:task.url, json:true}, function (e, r, body) {
+        console.log(body['Search'][0]['Poster']);
         callback();
-        }
+      });
+    
     }, N);
 
     q.drain = function() {
@@ -80,7 +81,8 @@ router.post('/addimages', function(req, res){
 
 
   });
-      res.redirect('/movietracker');
+  
+  res.redirect('/movietracker');
 
 
 });

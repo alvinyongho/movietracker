@@ -181,7 +181,7 @@ router.post('/scrape', function(req, res) {
                   temp_dictionary.movie_title = $(this).find('td:nth-child(2)').text().trim();
                   temp_dictionary.studio = $(this).find('td:nth-child(3)').text().trim();
                   temp_dictionary.box_office = $(this).find('td:nth-child(4)').text().trim();
-                  temp_dictionary.year = $(this).find('td:nth-child(9)').text().trim();
+                  temp_dictionary.year = $(this).find('td:nth-child(9)').text().trim().replace("^","");
                   //json_output.push(temp_dictionary);
                   console.log("ADDING TO DATABASE: " + temp_dictionary)
 

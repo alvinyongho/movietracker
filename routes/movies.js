@@ -10,14 +10,14 @@ router.get('/', function(req, res, next) {
 router.post('/create', multer({ dest: './uploads/'}).single('picture'), function(req, res) {
   
   // console.dir(req.file);
-  console.log(req.file['filename']);
+  var result_name = req.file['filename'];
 
   models.Movie.create({
     movie_title: req.body.movie_title,
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: req.file['filename']
+    picture: result_name
   }).then(function() {
     res.redirect('/movietracker');
   });

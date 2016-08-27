@@ -55,7 +55,7 @@ var download = function(uri, filename, callback){
 
 
 
-var update_movie_attributes = function(full_file_path, result_id){
+var update_movie_attributes = function(movie, full_file_path, result_id){
   movie.update(
     { picture:full_file_path },
     { _id : result_id }     
@@ -106,7 +106,7 @@ router.post('/addimages', function(req, res){
           var full_file_path = 'public/images/uploads/' + path.parse(poster_url).base;
           download(poster_url, full_file_path, function(){
             console.log('done i can now add to result id ' + result.id);
-            update_movie_attributes(full_file_path, result.id);
+            update_movie_attributes(movie, full_file_path, result.id);
           });
 
           // console.log("public/images/uploads/" + path.parse(poster_url).base);

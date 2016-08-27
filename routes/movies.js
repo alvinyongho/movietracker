@@ -60,8 +60,8 @@ router.post('/addimages', function(req, res){
     
     movies.foreach(movie){
       console.dir(movie.get());
-
     }
+  });
 
 
   //   var N = 1;

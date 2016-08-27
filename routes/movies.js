@@ -56,42 +56,15 @@ router.post('/addimages', function(req, res){
   //   })
 
 
-  models.Movie.findAll().then(function(movies) {
+  models.Movie.findAll()
+    .then(function(movies) {
     
-    movies.foreach(movie){
-      console.dir(movie.get());
-    }
-  });
+      movies.foreach(movie){
+        console.dir(movie.get());
+      }
+    });
 
 
-  //   var N = 1;
-  //   var q = async.queue(function (task, callback) {
-      
-
-
-  //     var movie_title = task.movie.movie_title
-
-  //     console.log(task.movie.movie_title);
-  //     // movie_title = movie.movie_title;
-  //     var result_url = url+movie_title;
-  //     request.get({url:result_url, json:true}, function (e, r, body) {
-  //       // console.log(body['Search'][0]['Poster']);
-  //       callback();
-  //     });
-    
-  //   }, N);
-
-  //   q.drain = function() {
-  //       console.log('all items have been processed');
-  //   }
-
-  //   for (movie in movies){
-
-  //     q.push({movie:movie});
-  //   }
-
-
-  // });
   
   res.redirect('/movietracker');
 

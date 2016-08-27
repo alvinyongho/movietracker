@@ -7,16 +7,12 @@ block content
   = movie.movie_title
 
   h2 Edit Movie
-  form(action="/movies/update", method="post", enctype="multipart/form-data")
-    
-    input(type="hidden", name="id", value=)
 
+  form(method="post", action="/#{movie._id/update")
+  input(type="hidden", name="_method", value="PUT")
 
-    form(method="post", action="/#{movie._id/update")
-    input(type="hidden", name="_method", value="PUT")
+  label(for="title")
+  input(type="text", name="movie_title", value="#{movie.movie_title")
+  br
 
-    label(for="title")
-    input(type="text", name="movie_title", value="#{movie.movie_title")
-    br
-
-    input(type="submit", name="submit")
+  input(type="submit", name="submit")

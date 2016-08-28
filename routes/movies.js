@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/create', multer({ storage: storage, limits: file_limit }).single('picture'), function(req, res) {
   
-  console.dir('THE FILE IS' + req.files.picture);
+  // console.dir('THE FILE IS' + req.file);
 
 
   var result_name = req.file['filename'];
@@ -44,7 +44,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
     box_office: req.body.box_office,
     picture: 'images/uploads/' + result_name
   }).then(function() {
-    res.redirect('#');
+    res.redirect('/movietracker');
   });
 });
 
@@ -232,12 +232,15 @@ router.get('/:movie_id/destroy', function(req, res) {
 
 router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }).single('picture'), function(req, res) {
   
+
+  console.dir(req.file);
   var result_name = req.file['filename'];
 
 
   console.log("@@@@ THE RESULT NAME OF UPDATE IS" + result_name);
   console.log("The movie title is " + req.body.movie_title)
   console.log("The movie id is " + req.params.movie_id)
+
 
   models.Movie.update(
 

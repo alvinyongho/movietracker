@@ -21,7 +21,6 @@ var storage = multer.diskStorage({
 
 var file_limit = 
   {
-    fields: 1,
     files: 1,
     fileSize: 512000
   }

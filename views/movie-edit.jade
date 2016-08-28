@@ -8,6 +8,11 @@ block content
 
   h2 Edit Movie
 
+
+  a(href="/movies/#{movie.id}/update") Update
+
+
+
   form(action="/movies/#{movie.id}/update", method="post", enctype="multipart/form-data")
   input(type="hidden", name="_method", value="POST")
 

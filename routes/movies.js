@@ -26,7 +26,9 @@ router.get('/', function(req, res, next) {
 
 router.post('/create', multer({ storage: storage}).single('picture'), function(req, res) {
   
-  // console.dir(req.file);
+  console.dir(req.file);
+
+
   var result_name = req.file['filename'];
 
   models.Movie.create({

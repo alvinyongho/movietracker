@@ -225,6 +225,10 @@ router.get('/:movie_id/destroy', function(req, res) {
 router.put('/:movie_id/update', multer({ storage: storage}).single('picture'), function(req, res) {
   
   var result_name = req.file['filename'];
+
+
+  console.log(result_name);
+
   models.Movie.update({
 
     movie_title: req.body.movie_title,

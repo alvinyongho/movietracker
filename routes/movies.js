@@ -275,7 +275,7 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   { where: {id: req.params.movie_id} }
 
   ).then(function() {
-    res.redirect('/movietracker');
+    res.redirect('');
   });
 });
 

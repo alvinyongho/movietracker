@@ -9,7 +9,7 @@ block content
   h2 Edit Movie
 
   form(action="/movies/#{movie.id}/update", method="post", enctype="multipart/form-data")
-  input(type="hidden", name="_method", value="PUT")
+  input(type="hidden", name="_method", value="POST")
 
   p Movie Title:
   input(type="text", name="movie_title", value="#{movie.movie_title}")

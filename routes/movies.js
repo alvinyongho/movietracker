@@ -230,7 +230,7 @@ router.get('/:movie_id/destroy', function(req, res) {
 
 
 
-function updateMovie(req, result_name, picture_dir){
+function updateMovie(req, res, result_name, picture_dir){
    models.Movie.update(
 
   { movie_title: req.body.movie_title,
@@ -281,7 +281,7 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   console.log("The movie id is " + req.params.movie_id)
   console.log("ADDING PICTURE TO DIRECTORY   " + 'images/uploads/' + result_name );
 
-  updateMovie(req, result_name, 'images/uploads/' + result_name)
+  updateMovie(req, res, result_name, 'images/uploads/' + result_name)
  
 });
 

@@ -34,18 +34,36 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   
   // console.dir('THE FILE IS' + req.file);
 
+  if(req.file){
 
-  var result_name = req.file['filename'];
+    var result_name = req.file['filename'];
 
-  models.Movie.create({
-    movie_title: req.body.movie_title,
-    studio: req.body.studio,
-    year: req.body.year,
-    box_office: req.body.box_office,
-    picture: 'images/uploads/' + result_name
-  }).then(function() {
-    res.redirect('/movietracker');
-  });
+    models.Movie.create({
+      movie_title: req.body.movie_title,
+      studio: req.body.studio,
+      year: req.body.year,
+      box_office: req.body.box_office,
+      picture: 'images/uploads/' + result_name
+    }).then(function() {
+      res.redirect('/movietracker');
+    });
+
+  } else {
+
+    models.Movie.create({
+      movie_title: req.body.movie_title,
+      studio: req.body.studio,
+      year: req.body.year,
+      box_office: req.body.box_office,
+      picture: 'NULL'
+    }).then(function() {
+      res.redirect('/movietracker');
+    });
+
+  }
+
+
+  
 });
 
 

@@ -232,9 +232,19 @@ router.get('/:movie_id/destroy', function(req, res) {
 
 router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }).single('picture'), function(req, res) {
   
+  var result_name = "";
 
   console.dir(req.file);
-  var result_name = req.file['filename'];
+
+  if(req.file){
+    console.log("WE HAVE A FILE!!!");
+    result_name = req.file['filename'];
+  } else {
+    console.log("WE DONT GOT A FILE!!!!");
+
+  }
+
+  // result_name = req.file['filename'];
 
 
   console.log("@@@@ THE RESULT NAME OF UPDATE IS" + result_name);

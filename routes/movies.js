@@ -245,8 +245,9 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
     // use previous file
     models.Movie.findById(req.params.movie_id).then(function(movie) {
 
-      console.log("the result is the previous name: " + movie.picture.base);
-      result_name = movie.picture.base;
+
+      console.log("the result is the previous name: " + movie.picture);
+      result_name = movie.picture;
 
   // project will be an instance of Project and stores the content of the table entry
   // with id 123. if such an entry is not defined you will get null

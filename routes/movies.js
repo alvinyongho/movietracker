@@ -44,7 +44,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
     box_office: req.body.box_office,
     picture: 'images/uploads/' + result_name
   }).then(function() {
-    res.redirect('/movietracker');
+    res.redirect('#');
   });
 });
 

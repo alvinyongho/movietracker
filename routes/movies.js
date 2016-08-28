@@ -229,6 +229,7 @@ router.post('/:movie_id/update', multer({ storage: storage}).single('picture'), 
 
   console.log("@@@@ THE RESULT NAME OF UPDATE IS" + result_name);
   console.log("The movie title is " + req.body.movie_title)
+  console.log("The movie id is " + req.query.movie_id)
 
   models.Movie.update({
 

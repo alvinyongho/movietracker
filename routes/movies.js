@@ -230,6 +230,23 @@ router.get('/:movie_id/destroy', function(req, res) {
 
 
 
+function updateMovie(req, result_name, picture_dir){
+   models.Movie.update(
+
+  { movie_title: req.body.movie_title,
+    studio: req.body.studio,
+    year: req.body.year,
+    box_office: req.body.box_office,
+    picture: picture_dir }, 
+  
+  { where: {id: req.params.movie_id} }
+
+  ).then(function() {
+    res.redirect('');
+  });
+}
+
+
 router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }).single('picture'), function(req, res) {
   
   var result_name = "";
@@ -264,20 +281,8 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   console.log("The movie id is " + req.params.movie_id)
   console.log("ADDING PICTURE TO DIRECTORY   " + 'images/uploads/' + result_name );
 
-
-  models.Movie.update(
-
-  { movie_title: req.body.movie_title,
-    studio: req.body.studio,
-    year: req.body.year,
-    box_office: req.body.box_office,
-    picture: 'images/uploads/' + result_name }, 
-  
-  { where: {id: req.params.movie_id} }
-
-  ).then(function() {
-    res.redirect('');
-  });
+  updateMovie(req, result_name, 'images/uploads/' + result_name)
+ 
 });
 
 

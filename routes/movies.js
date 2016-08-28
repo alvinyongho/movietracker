@@ -19,12 +19,19 @@ var storage = multer.diskStorage({
   }
 })
 
+var file_limit = 
+  {
+    fields: 1,
+    files: 1,
+    fileSize: 512000
+  }
+
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/create', multer({ storage: storage}).single('picture'), function(req, res) {
+router.post('/create', multer({ storage: storage, limits: file_limit }).single('picture'), function(req, res) {
   
   console.dir('THE FILE IS' + req.file);
 
@@ -224,7 +231,7 @@ router.get('/:movie_id/destroy', function(req, res) {
 
 
 
-router.post('/:movie_id/update', multer({ storage: storage}).single('picture'), function(req, res) {
+router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }).single('picture'), function(req, res) {
   
   var result_name = req.file['filename'];
 

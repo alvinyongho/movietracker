@@ -242,6 +242,17 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   } else {
     console.log("WE DONT GOT A FILE!!!!");
 
+    // use previous file
+    models.Movie.findById(req.params.movie_id).then(function(movie) {
+
+      console.log("the result is the previous name: " movie.picture.base);
+      result_name = movie.picture.base;
+
+  // project will be an instance of Project and stores the content of the table entry
+  // with id 123. if such an entry is not defined you will get null
+    })
+
+
   }
 
   // result_name = req.file['filename'];
@@ -250,6 +261,7 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   console.log("@@@@ THE RESULT NAME OF UPDATE IS" + result_name);
   console.log("The movie title is " + req.body.movie_title)
   console.log("The movie id is " + req.params.movie_id)
+  console.log("ADDING PICTURE TO DIRECTORY   " + 'images/uploads/' + result_name );
 
 
   models.Movie.update(
@@ -263,7 +275,7 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   { where: {id: req.params.movie_id} }
 
   ).then(function() {
-    res.redirect('#');
+    res.redirect('/movietracker');
   });
 });
 

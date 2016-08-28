@@ -222,7 +222,7 @@ router.get('/:movie_id/destroy', function(req, res) {
 
 
 
-router.put('/:movie_id/update', multer({ storage: storage}).single('picture'), function(req, res) {
+router.post('/:movie_id/update', multer({ storage: storage}).single('picture'), function(req, res) {
   
   var result_name = req.file['filename'];
 

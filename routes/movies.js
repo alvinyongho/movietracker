@@ -237,7 +237,7 @@ router.post('/:movie_id/update', multer({ storage: storage}).single('picture'), 
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: result_name,
+    picture: 'images/uploads/' + result_name,
 
     where: {
       id: req.params.movie_id

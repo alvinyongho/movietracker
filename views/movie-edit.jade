@@ -14,19 +14,15 @@ block content
 
 
   form(action="/movies/#{movie.id}/update", method="post", enctype="multipart/form-data")
-  input(type="hidden", name="_method", value="POST")
+    p Movie Title:
+    input(type="text", name="movie_title", value="#{movie.movie_title}")
+    p Studio:
+    input(type="text", name="studio", value="#{movie.studio}")
+    p Year:
+    input(type="text", name="year", value="#{movie.year}")
+    p Box Office $:
+    input(type="text", name="box_office", value="#{movie.box_office}")
+    p Picture:
+    input(type="file", name="picture", value="#{movie.picture}")
+    input(type="submit")
 
-  p Movie Title:
-  input(type="text", name="movie_title", value="#{movie.movie_title}")
-  p Studio:
-  input(type="text", name="studio", value="#{movie.studio}")
-  p Year:
-  input(type="text", name="year", value="#{movie.year}")
-  p Box Office $$$:
-  input(type="text", name="box_office", value="#{movie.box_office}")
-  p Picture:
-  img(src="http://panogi.com/#{movie.picture}")
-  input(type="file", name="picture")
-  br
-
-  input(type="submit", name="submit")

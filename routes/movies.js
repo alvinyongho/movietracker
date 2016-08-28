@@ -232,13 +232,12 @@ router.post('/:movie_id/update', multer({ storage: storage}).single('picture'), 
   console.log("The movie id is " + req.params.movie_id)
 
   models.Movie.update({
-
     movie_title: req.body.movie_title,
     studio: req.body.studio,
     year: req.body.year,
     box_office: req.body.box_office,
-    picture: 'images/uploads/' + result_name,
-
+    picture: 'images/uploads/' + result_name
+    }
     where: {
       id: req.params.movie_id
     }

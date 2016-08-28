@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/create', multer({ storage: storage, limits: file_limit }).single('picture'), function(req, res) {
   
-  console.dir('THE FILE IS' + req.file);
+  console.dir('THE FILE IS' + req.files.picture);
 
 
   var result_name = req.file['filename'];

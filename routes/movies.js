@@ -227,7 +227,7 @@ router.put('/:movie_id/update', multer({ storage: storage}).single('picture'), f
   var result_name = req.file['filename'];
 
 
-  console.log(result_name);
+  console.log("@@@@ THE RESULT NAME OF UPDATE IS" + result_name);
 
   models.Movie.update({
 

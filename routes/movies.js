@@ -55,7 +55,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
       studio: req.body.studio,
       year: req.body.year,
       box_office: req.body.box_office,
-      picture: 'NULL'
+      picture: 'null'
     }).then(function() {
       res.redirect('/movietracker');
     });

@@ -238,7 +238,7 @@ router.post('/:movie_id/update', multer({ storage: storage}).single('picture'), 
     picture: result_name,
 
     where: {
-      id: req.params.movie_id
+      id: req.query.movie_id
     }
 
   }).then(function() {

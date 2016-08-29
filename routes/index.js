@@ -14,10 +14,10 @@ const scheme = {
 
   include:['@all'],
 
-  exclude: ['@pk', '@fk'];
+  exclude: ['@pk', '@fk'],
 
   assoc: {
-  };
+  }
 
 };
 

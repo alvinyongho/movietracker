@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
   var queries = queryBuilder.buildQuery(requestQuery);
 
 
-  models.Movie.findAll(raw: true).then(function(movies) {
+  models.Movie.findAll({raw: true}).then(function(movies) {
     res.render('index', {
       title: 'Movies listing',
       movies: movies

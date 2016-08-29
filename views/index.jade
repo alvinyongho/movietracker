@@ -77,5 +77,10 @@ block content
 
   script.
     $(document).ready( function () {
-      $('#movie_table').DataTable();
+      $('#movie_table').DataTable(
+      {
+        paging: true,
+        "data": #{movies}
+
+      });
     } );

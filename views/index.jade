@@ -81,14 +81,14 @@ block content
 
     var parsed = JSON.parse(result_data);
     var resulting_array = [];
-    resulting_array.push(parsed);
+    resulting_array['data'] = parsed);
 
 
     $(document).ready( function () {
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: parsed,
+        data: resulting_array,
         columns: [
       { data: "movie_title"},
       { data: "studio"},

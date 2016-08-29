@@ -72,5 +72,6 @@ block content
 
 
   script(type='text/javascript').
-    var $  = require( 'jquery' );
-    var dt = require( 'datatables.net' )();
+    var $       = require( 'jquery' );
+    var dt      = require( 'datatables.net' )( window, $ );
+    var buttons = require( 'datatables.net-buttons' )( window, $ );

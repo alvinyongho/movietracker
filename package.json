@@ -12,6 +12,8 @@
     "cookie-parser": "~1.4.3",
     "datatable": "^2.0.2",
     "datatables": "^1.10.12",
+    "datatables.net": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
     "debug": "~2.2.0",
     "express": "~4.13.4",
     "express-fileupload": "0.0.5",

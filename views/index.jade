@@ -33,6 +33,19 @@ block content
 
 
 
+  h2 DataTables
+
+  table (id="movie_table" class="display")
+    thead
+      tr
+        th Movie Title
+        th Studio
+        th Year
+        th Box Office
+        th Picture
+
+
+
 
   h2 Movies
 
@@ -55,3 +68,9 @@ block content
           a(href="/movies/" + movie.id + "/destroy") Destroy
         td
           a(href="/movies/" + movie.id) Update
+
+
+
+  script(type='text/javascript').
+    var $  = require( 'jquery' );
+    var dt = require( 'datatables.net' )();

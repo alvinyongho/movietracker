@@ -88,12 +88,12 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: JSON.stringify(resulting_array),
+        data: resulting_array,
         columns: [
-      { data: "movie_title"},
-      { data: "studio"},
-      { data: "year"},
-      { data: "box_office"}
+      {"movie_title"},
+      {"studio"},
+      {"year"},
+      {"box_office"}
     ]
 
       });

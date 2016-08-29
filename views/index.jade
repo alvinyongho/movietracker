@@ -80,7 +80,7 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: #{JSON.parse(postAsJSON)}
+        data: #{JSON.parse(JSON.stringify(postAsJSON))}
 
       });
     } );

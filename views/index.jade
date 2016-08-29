@@ -76,11 +76,15 @@ block content
 
 
   script.
+    
+    var result_data = #{postAsJSON}".replace(/&quot;/g,'"');
+
+
     $(document).ready( function () {
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: ["#{postAsJSON}".replace(/&quot;/g,'"')"]
+        data: []
 
       });
     } );

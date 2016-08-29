@@ -46,7 +46,7 @@ router.get('/', function(req, res) {
 
 
   models.Movie.findAll().then(function(movies) {
-    let serializer = new Serializer(models.Movie, schema);
+    let serializer = new Serializer(models.Movie, scheme);
     let postAsJSON = serializer.serialize(movies[0]);
 
     res.render('index', {

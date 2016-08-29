@@ -80,8 +80,8 @@ block content
     var result_data = "#{postAsJSON}".replace(/&quot;/g,'"');
 
     var parsed = JSON.parse(result_data);
-    var resulting_array = [];
-    resulting_array['data'] = parsed;
+    var resulting_array = [{'data': parsed}];
+
 
 
     $(document).ready( function () {

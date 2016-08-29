@@ -24,12 +24,12 @@ router.get('/', function(req, res) {
   var queries = queryBuilder.buildQuery(requestQuery);
 
 
-  // models.Movie.findAll().then(function(movies) {
-  //   res.render('index', {
-  //     title: 'Movies listing',
-  //     movies: movies
-  //   });
-  // });
+  models.Movie.findAll(where:{id: 1}).then(function(movies) {
+    res.render('index', {
+      title: 'Movies listing',
+      movies: movies
+    });
+  });
 
     // (models.Movie.findAll().then(function(movies) {
     //   console.log(JSON.stringify(movies))

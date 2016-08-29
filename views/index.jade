@@ -79,12 +79,13 @@ block content
     
     var result_data = "#{postAsJSON}".replace(/&quot;/g,'"');
 
+    var parsed = JSON.parse(result_data);
 
     $(document).ready( function () {
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: JSON.parse(result_data)
+        data: [parsed]
 
       });
     } );

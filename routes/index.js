@@ -5,6 +5,27 @@ var models = require('../models');
 var async = require('async');
 var QueryBuilder = require('datatable');
 
+var Serializer = require('sequelize-to-json');
+
+
+
+
+const scheme = {
+
+  include:['@all'],
+
+  exclude: ['@pk', '@fk'];
+
+  assoc: {
+  };
+
+};
+
+
+
+
+
+
 
 
 /* GET home page. */
@@ -25,9 +46,13 @@ router.get('/', function(req, res) {
 
 
   models.Movie.findAll().then(function(movies) {
+    let serializer = new Serializer(models.Movie, schema);
+    let postAsJSON = serializer.serialize(movies[0]);
+
     res.render('index', {
       title: 'Movies listing',
-      movies: movies
+      movies: movies,
+      postAsJSON: postAsJSON
     });
   });
 

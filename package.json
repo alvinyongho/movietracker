@@ -24,6 +24,7 @@
     "request": "^2.74.0",
     "sequelize": "^3.24.1",
     "sequelize-cli": "^2.4.0",
+    "sequelize-to-json": "^0.9.1",
     "serve-favicon": "~2.3.0",
     "sqlite3": "^3.1.4",
     "then-request": "^2.2.0"

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-var async = require('async')
+var async = require('async');
 
 const scheme = {
 
@@ -20,12 +20,20 @@ const scheme = {
 router.get('/', function(req, res) {
   var start = req.param('start');
   var end = req.param('end');
+  var numrow = req.param('rows');
+
 
 
   var result = {};
 
   var result_data = [];
   
+
+
+  if (!numrow) {
+    numrow = 20;
+  }
+
 
   async.parallel({
     one: function(callback){
@@ -40,7 +48,7 @@ router.get('/', function(req, res) {
     two: function(callback){
         // setTimeout(function(){
 
-          models.Movie.findAll({limit: 10}).then(function(movies) {
+          models.Movie.findAll({limit: numrow}).then(function(movies) {
             callback(null, movies);
           });
             

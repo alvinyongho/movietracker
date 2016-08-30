@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
   var page = req.param('page');
   var numrow = req.param('rows');
   var prev_page = 0;
-  var offset = parseInt(page) * parseInt(numrow);
+  var offset = (+page) * (+numrow);
   console.log("CURRENT START IS " + offset);
 
 
@@ -61,7 +61,7 @@ router.get('/', function(req, res) {
               callback(null, movies);
             });
           } else {
-            models.Movie.findAll({offset: 5, limit: parseInt(numrow)}).then(function(movies) {
+            models.Movie.findAll({offset: parseInt(offset), limit: parseInt(numrow)}).then(function(movies) {
               callback(null, movies);
             });
           }

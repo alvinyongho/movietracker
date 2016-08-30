@@ -18,6 +18,10 @@ const scheme = {
 
 /* GET home page. */
 router.get('/', function(req, res) {
+  var start = req.param('start');
+  var end = req.param('end');
+
+
   var result = {};
 
   var result_data = [];

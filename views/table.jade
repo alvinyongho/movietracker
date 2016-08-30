@@ -30,9 +30,6 @@ block content
   script.
     $(document).ready(function() {
 
-      $("#delete-button").confirm();
-
-
       $('#movie-table').DataTable( {
           "ajax": '/movies/api/json',
           "columns": [
@@ -74,5 +71,7 @@ block content
           }
 
 
-      } );
-    } );
+      });
+      $("#delete-button").confirm();
+
+    });

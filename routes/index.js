@@ -23,15 +23,12 @@ router.get('/', function(req, res) {
   var page_limit = 5;
 
   if (req.query.limit){
-    console.log(req.query.limit);
-  }
-
-  if (!req.query.limit){
-    console.log('NO LIMIT@@@@@@')
+    page_limit = 20;
   }
 
 
-  models.Movie.findAll({ limit: 5 }).then(function(movies) {
+
+  models.Movie.findAll({ limit: page_limit }).then(function(movies) {
     
     res.render('index', {
       title: 'Movies listing',

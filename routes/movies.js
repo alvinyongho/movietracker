@@ -340,7 +340,7 @@ router.get('/api/json', function(req, res) {
     two: function(callback){
         setTimeout(function(){
 
-          models.Movie.findAll({limit: 10}).then(function(movies) {
+          models.Movie.findAll().then(function(movies) {
             callback(null, movies);
           });
             

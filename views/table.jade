@@ -29,6 +29,13 @@ block content
   script.
     $(document).ready(function() {
       $('#movie-table').DataTable( {
-          "mData": '/movies/api/json'
+          "ajax": '/movies/api/json',
+          "columns": [
+            { "data": "id" },
+            { "data": "movie_title" },
+            { "data": "studio" },
+            { "data": "year" },
+            { "data": "box_office" },
+            { "data": "picture" }
       } );
     } );

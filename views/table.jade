@@ -29,10 +29,17 @@ block content
 
   script.
     
-    function getConfirmation(){
+    function getConfirmation(destination){
       var retVal = confirm("Do you want to continue ?");
       if( retVal == true ){
-        document.write ("User wants to continue!");
+        
+        $.ajax({
+            url: destination,
+            type: 'DELETE',
+            success: function(result) {
+                console.log('success!!!');
+            }
+        });
         return true;
       }
       else{

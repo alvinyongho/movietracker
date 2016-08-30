@@ -19,9 +19,7 @@ const scheme = {
 /* GET home page. */
 router.get('/', function(req, res) {
 
-  models.Movie.count().then(function(c) {
-    console.log("There are " + c + " movies!")
-  });
+  
 
   models.Movie.findAll({limit: 10}).then(function(movies) {
     
@@ -31,6 +29,15 @@ router.get('/', function(req, res) {
     });
 
     console.log(JSON.stringify(movies));
+
+
+    console.log(models.Movie.count());
+    // result = {
+    //   draw: 0,
+    //   recordsTotal: models.Movie.count()
+
+
+    // }
 
 
   });

@@ -85,7 +85,19 @@ block content
   button(id="next-button" ) Next Page
 
   a(class='button', href='#') Previous Page
-  a(class='button', href='?#{next_page}') Next Page
+  a(class='button', href='?page=#{next_page}') Next Page
 
 
+
+script.
+  $(function(){
+      // bind change event to select
+      $('#paginate').on('change', function () {
+          var url = '/movietracker?page=0&rows=' + $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+  });
 

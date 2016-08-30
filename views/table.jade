@@ -5,7 +5,7 @@ block content
   h1 $$$Gross... Movies
 
 
-  button(id="new-entry" type="button" data-toggle="modal" data-target="#createModal") Add Movie
+  button(class="btn btn-default" id="new-entry" type="button" data-toggle="modal" data-target="#createModal") Add Movie
 
   div(class="modal fade" id="createModal" tabindex="-1" role="dialog")
     div(class="modal-dialog" role="document")
@@ -28,7 +28,7 @@ block content
             input(type="text", name="box_office")
             p Picture:
             input(type="file", name="picture")
-            input(type="submit")
+            input(class="btn btn-default" type="submit")
 
 
         div(class="modal-footer")

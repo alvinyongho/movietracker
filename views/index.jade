@@ -72,8 +72,8 @@ block content
     option(value=ALL) ALL
 
 
-  a(class='button', href='?page=#{prev_page}&row=#{numrow}') Previous Page
-  a(class='button', href='?page=#{next_page}&row=#{numrow}') Next Page
+  a(id="prev-button", class='button', href='?page=#{prev_page}&row=#{numrow}') Previous Page
+  a(id="next-button", class='button', href='?page=#{next_page}&row=#{numrow}') Next Page
 
 
 
@@ -107,6 +107,8 @@ block content
     }
     if("#{numrow}" == 'ALL'){
       $('#paginate').val("ALL")
+      $('#prev-button').hide();
+      $('#next-button').hide();
 
 
     }

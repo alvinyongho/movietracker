@@ -34,7 +34,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   
   // console.dir('THE FILE IS' + req.file);
 
-  
+
 
 
   if(req.file){
@@ -327,7 +327,7 @@ router.get('/api/json', function(req, res) {
 
   var result_data = [];
   
-  res.setHeader('Content-Type', 'application/json');
+  
 
 
   async.parallel({
@@ -362,6 +362,7 @@ router.get('/api/json', function(req, res) {
     
     // console.log("RESULT DATA IS...." + stringified);
     
+    res.setHeader('Content-Type', 'application/json');
     res.json(result_data);
 
   });

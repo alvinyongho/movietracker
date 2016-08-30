@@ -77,11 +77,12 @@ block content
 
   script.
     
+    var resulting_array = #{resulting_array};
 
     $(document).ready( function () {
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: '/movies/api/json'
+        data: resulting_array,
       });
     });

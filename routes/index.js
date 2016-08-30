@@ -29,10 +29,14 @@ router.get('/', function(req, res) {
       title: 'Movies listing',
       movies: movies
     });
+
+    console.log(JSON.stringify(movies));
+
+
   });
 
     // (models.Movie.findAll().then(function(movies) {
-      console.log(JSON.stringify(movies))
+    //   console.log(JSON.stringify(movies))
     // }));
 });
 

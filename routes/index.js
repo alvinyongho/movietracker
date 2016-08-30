@@ -56,7 +56,7 @@ router.get('/', function(req, res) {
     res.render('index', {
     title: 'Movies listing',
     movies: results.two,
-    result: result_data
+    resulting_array: result_data
     });
  
       // results is equal to: {one: 1, two: 2}

@@ -72,8 +72,10 @@ block content
     option(value=ALL) ALL
 
 
-  a(class='button', href='?page=#{prev_page}&row=#{numrow}') Previous Page
-  a(class='button', href='?page=#{next_page}&row=#{numrow}') Next Page
+  if !#{prev_disabled}
+    a(class='button', href='?page=#{prev_page}&row=#{numrow}') Previous Page
+  if !#{next_disabled}
+    a(class='button', href='?page=#{next_page}&row=#{numrow}') Next Page
 
 
 

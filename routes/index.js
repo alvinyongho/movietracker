@@ -40,10 +40,10 @@ router.get('/', function(req, res) {
     prev_page = parseInt(page)-1;
   }
 
+
+
   var offset = Number(page) * Number(numrow);
   console.log("CURRENT START IS " + offset);
-
-
 
 
   async.parallel({
@@ -91,6 +91,13 @@ router.get('/', function(req, res) {
     next_page: (parseInt(page)+1),
     prev_page: prev_page,
     numrow: numrow
+
+
+    if(numrow == 'ALL'){
+      next_disabled: true,
+      prev_disabled: true
+    }
+
 
     // resulting_array: stringified
     });

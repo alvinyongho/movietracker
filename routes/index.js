@@ -29,22 +29,22 @@ router.get('/', function(req, res) {
 
   async.parallel({
     one: function(callback){
-        setTimeout(function(){
+        // setTimeout(function(){
           models.Movie.count().then(function(c) {
 
             callback(null, c);
 
           })
-        }, 1000);
+        // }, 1000);
     },
     two: function(callback){
-        setTimeout(function(){
+        // setTimeout(function(){
 
           models.Movie.findAll({limit: 10}).then(function(movies) {
             callback(null, movies);
           });
             
-        }, 1000);
+        // }, 1000);
     }
   },
   function(err, results) {

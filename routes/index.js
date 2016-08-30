@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
       res.render('index', {
       title: 'Movies listing',
       movies: movies,
-      result: result_data
+      result: JSON.stringify(result_data)
       });
  
     })

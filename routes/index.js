@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
   var page_limit = 5;
 
   if (req.query.limit){
-    page_limit = req.query.limit;
+    console.log(req.query.limit);
   }
 
   if (!req.query.limit){

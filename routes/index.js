@@ -100,12 +100,12 @@ router.get('/', function(req, res) {
       // results is equal to: {one: 1, two: 2}
   });
 
-
-
-
-
-
-
 });
+
+router.get('/table', function(req, res) {
+  res.render('table', {
+  });
+}
+
 
 module.exports = router;

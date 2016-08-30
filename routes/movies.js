@@ -319,54 +319,52 @@ router.get('/:movie_id', function(req, res) {
 
 
 
-router.get('/json', function(req, res) {
-  var result = {};
+// router.get('/json', function(req, res) {
+//   var result = {};
 
-  var result_data = [];
+//   var result_data = [];
   
-  res.setHeader('Content-Type', 'application/json');
+//   res.setHeader('Content-Type', 'application/json');
 
 
-  async.parallel({
-    one: function(callback){
-        setTimeout(function(){
-          models.Movie.count().then(function(c) {
+//   async.parallel({
+//     one: function(callback){
+//         setTimeout(function(){
+//           models.Movie.count().then(function(c) {
 
-            callback(null, c);
+//             callback(null, c);
 
-          })
-        }, 1000);
-    },
-    two: function(callback){
-        setTimeout(function(){
+//           })
+//         }, 1000);
+//     },
+//     two: function(callback){
+//         setTimeout(function(){
 
-          models.Movie.findAll({limit: 10}).then(function(movies) {
-            callback(null, movies);
-          });
+//           models.Movie.findAll({limit: 10}).then(function(movies) {
+//             callback(null, movies);
+//           });
             
-        }, 1000);
-    }
-  },
-  function(err, results) {
+//         }, 1000);
+//     }
+//   },
+//   function(err, results) {
 
-    result_data = {
-        "draw": 1,
-        "recordsTotal": results.one,
-        "data": JSON.parse(JSON.stringify(results.two))
-    }
+//     result_data = {
+//         "draw": 1,
+//         "recordsTotal": results.one,
+//         "data": JSON.parse(JSON.stringify(results.two))
+//     }
     
-    var stringified = JSON.stringify(result_data);
+//     var stringified = JSON.stringify(result_data);
     
-    console.log("RESULT DATA IS...." + stringified);
+//     // console.log("RESULT DATA IS...." + stringified);
     
-    res.json(result_data);
+//     res.json(result_data);
+
+//   });
 
 
-
- 
-      // results is equal to: {one: 1, two: 2}
-  });
-});
+// });
 
 
 module.exports = router;

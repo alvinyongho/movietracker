@@ -45,14 +45,14 @@ router.get('/', function(req, res) {
   var queries = queryBuilder.buildQuery(requestQuery);
 
 
-  models.Movie.findAll({ limit: 10 }).then(function(movies) {
+  models.Movie.findAll().then(function(movies) {
     let serializer = new Serializer(models.Movie, scheme);
     let postAsJSON = serializer.serialize(movies[0]);
 
     res.render('index', {
       title: 'Movies listing',
       movies: movies,
-      postAsJSON: JSON.stringify(postAsJSON)
+      postAsJSON: JSON.stringify(movies)
     });
   });
 

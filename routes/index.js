@@ -52,7 +52,8 @@ router.get('/', function(req, res) {
     }
     
     var stringified = JSON.stringify(result_data);
-      
+    
+    console.log("RESULT DATA IS...." + result_data);
     res.render('index', {
     title: 'Movies listing',
     movies: results.two,

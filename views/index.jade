@@ -80,7 +80,7 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: "#{result}",
+        data: "JSON.stringify(#{result})",
         "aoColumns": [
         { "mData": "movie_title" },
         { "mData": "studio" },

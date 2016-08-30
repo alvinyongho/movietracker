@@ -36,54 +36,6 @@ router.get('/', function(req, res) {
   console.log("THE QUERIES VARIABLE@@@: " + queries);
 
 
-  // Connect to ymsql
-  var mysql      = require('mysql');
-  var connection = mysql.createConnection({
-    host     : '127.0.0.1',
-    user     : 'movieadmin',
-    password : 'cse135_Nodeapp',
-    database : 'movieapp'
-  });
-
-  connection.connect();
-
-  connection.query(queries.changeDatabaseOrSchema, function(err){
-    if (err) { res.error(err); }
-    else{
-        async.parallel(
-            {
-                recordsFiltered: function(cb) {
-                    myDbObject.query(queries.recordsFiltered, cb);
-                },
-                recordsTotal: function(cb) {
-                    myDbObject.query(queries.recordsTotal, cb);
-                },
-                select: function(cb) {
-                    myDbObject.query(queries.select, cb);
-                }
-            },
-            function(err, results) {
-                if (err) { res.error(err); }
-                else {
-                    res.json(queryBuilder.parseResponse(results));
-                }
-            }
-        );
-    }
-  });
-
-  connection.end();
-
-
-
-
-
-
-
-
-
-
-
   models.Movie.findAll({limit: 1}).then(function(movies) {
     
     res.render('index', {

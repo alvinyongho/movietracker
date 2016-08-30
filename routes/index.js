@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
         "data": JSON.parse(JSON.stringify(movies))
 
       }
-      console.log(result_data);
+      console.log(JSON.stringify(result_data));
 
 
       

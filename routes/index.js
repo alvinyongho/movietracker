@@ -34,7 +34,8 @@ router.get('/', function(req, res) {
       
       res.render('index', {
       title: 'Movies listing',
-      movies: movies
+      movies: movies,
+      result: result
       });
  
     })

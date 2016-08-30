@@ -32,7 +32,7 @@ router.get('/', function(req, res) {
   });
 
     // (models.Movie.findAll().then(function(movies) {
-    //   console.log(JSON.stringify(movies))
+      console.log(JSON.stringify(movies))
     // }));
 });
 

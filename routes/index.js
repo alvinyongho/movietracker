@@ -49,7 +49,7 @@ router.get('/', function(req, res) {
 
 
   pool.query(queries.changeDatabaseOrSchema, function(err){
-    if (err) { res.error(err); }
+    if (err) { console.log(err); }
     else{
         async.parallel(
             {

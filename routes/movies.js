@@ -249,6 +249,16 @@ router.get('/:movie_id/destroy', function(req, res) {
   });
 });
 
+router.post('/:movie_id/destroy', function(req, res) {
+  models.Movie.destroy({
+    where: {
+      id: req.params.movie_id
+    }
+  }).then(function() {
+    res.redirect('/movietracker');
+  });
+});
+
 
 
 function updateMovie(req, res, result_name, picture_dir){

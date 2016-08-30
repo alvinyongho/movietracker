@@ -53,13 +53,15 @@ block content
 
             $('td:eq(4)', nRow).html(imgTag); // where 4 is the zero-origin visible column in the HTML
 
-            var editLink = '/movies/' + aData['id'];
+            var editLink = aData['id'];
+
+            var button_url = '<a href="/movies/' + editLink + '">Edit URL</a>';
 
             var buttonTag = 
-              '<button onclick="location.href=' + editLink +  '" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>';
+              '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit </button><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>';
             
 
-            $('td:eq(5)', nRow).html(buttonTag);
+            $('td:eq(5)', nRow).html(button_url);
 
 
             return nRow;

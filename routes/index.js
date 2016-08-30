@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
     console.log("There are " + c + " movies!")
   });
 
-  models.Movie.findAll({limit: 10}).then(function(movies) {
+  models.Movie.findAll({limit: 10, plain: true}).then(function(movies) {
     
     res.render('index', {
       title: 'Movies listing',

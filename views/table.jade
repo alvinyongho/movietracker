@@ -28,7 +28,7 @@ block content
 
 
   script.
-    var table = {};
+    
     function getConfirmation(destination){
       var retVal = confirm("Do you want to continue ?");
       if( retVal == true ){
@@ -37,7 +37,6 @@ block content
             url: destination,
             type: 'POST',
             success: function(result) {
-              table.ajax.reload();
             }
         });
         return true;
@@ -50,7 +49,7 @@ block content
     $(document).ready(function() {
 
 
-      table = $('#movie-table').DataTable( {
+      $('#movie-table').DataTable( {
           "ajax": '/movies/api/json',
           "columns": [
             { "data": "movie_title" },

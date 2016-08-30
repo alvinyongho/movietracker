@@ -23,24 +23,6 @@ const scheme = {
 
 
 
-
-router.get('/movieapi', function(req, res) {
-  models.Movie.findAll().then(function(movies) {
-    let serializer = new Serializer(models.Movie, scheme);
-    let postAsJSON = serializer.serialize(movies[0]);
-
-
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(movies));
-
-
-  });
-
-
-});
-
-
-
 /* GET home page. */
 router.get('/', function(req, res) {
   

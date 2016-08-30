@@ -57,9 +57,7 @@ router.get('/', function(req, res) {
               callback(null, movies);
             });
           }
-            
-        // }, 1000);
-          }
+                 
     }
   },
   function(err, results) {

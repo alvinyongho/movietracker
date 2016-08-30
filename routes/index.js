@@ -48,7 +48,7 @@ router.get('/', function(req, res) {
     result_data = {
         "draw": 1,
         "recordsTotal": results.one,
-        "data": JSON.parse(JSON.stringify(movies))
+        "data": JSON.parse(JSON.stringify(results.two))
     }
     
     var stringified = JSON.stringify(result_data);

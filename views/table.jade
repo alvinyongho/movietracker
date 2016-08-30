@@ -21,6 +21,14 @@ block content
         th box_office
         th picture
 
+
   
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
   script(src='https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/datatables.min.js')
+
+  script.
+    $(document).ready(function() {
+      $('#movie-table').DataTable( {
+          "ajax": '/movies/api/json'
+      } );
+    } );

@@ -64,7 +64,7 @@ router.get('/', function(req, res) {
                 }
             },
             function(err, results) {
-                if (err) { res.error(err); }
+                if (err) { console.log(err); }
                 else {
                     res.json(queryBuilder.parseResponse(results));
                 }

@@ -48,12 +48,12 @@ router.get('/', function(req, res) {
 
 
 
-  // pool.query(queries.changeDatabaseOrSchema, function(err, rows, fields) {
-  //   if (!err)
-  //     console.log('The solution is: ', rows);
-  //   else
-  //     console.log('Error while performing Query.');
-  // });
+  pool.query('SELECT COUNT(id) FROM Movies', function(err, rows, fields) {
+    if (!err)
+      console.log('The solution is: ', rows);
+    else
+      console.log('Error while performing Query.');
+  });
 
 
 

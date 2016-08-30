@@ -3,7 +3,7 @@ extends layout
 block content
   h1 $$$Gross... Movies
 
-  table(id="movie-table" class="display dataTable" role="grid")
+  table(id="movie-table" class="display")
     thead
       tr
         th movie_title
@@ -11,6 +11,7 @@ block content
         th year
         th box_office
         th picture
+        th Editor
     tfoot
       tr
         th movie_title
@@ -18,6 +19,7 @@ block content
         th year
         th box_office
         th picture
+        th Editor
 
 
   
@@ -34,6 +36,14 @@ block content
             { "data": "year" },
             { "data": "box_office" },
             { "data": "picture" }],
+
+          "columnDefs": [ {
+            "targets": -1,
+            "data": null,
+            "defaultContent": "<button>Click!</button>"
+          } ],
+
+          
           "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
           "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
             var imgLink = aData['picture']; // if your JSON is 3D

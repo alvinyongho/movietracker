@@ -20,7 +20,7 @@ const scheme = {
 router.get('/', function(req, res) {
   var page = req.param('page');
   var numrow = req.param('rows');
-
+  var prev_page = 0;
   var current_start = parseInt(page) * parseInt(numrow);
   console.log("CURRENT START IS " + current_start);
 
@@ -37,6 +37,9 @@ router.get('/', function(req, res) {
 
   if(!page){
     page = 0;
+    prev_page = 0;
+  } else {
+    prev_page = parseInt(prev_page)-1;
   }
 
 
@@ -82,7 +85,8 @@ router.get('/', function(req, res) {
     res.render('index', {
     title: 'Movies listing',
     movies: results.two,
-    next_page: (parseInt(page)+1)
+    next_page: (parseInt(page)+1),
+    prev_page: prev_page
 
     // resulting_array: stringified
     });

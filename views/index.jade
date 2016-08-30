@@ -77,7 +77,20 @@ block content
 
   script.
 
-    var stringified = JSON.stringify(#{result_data});
+    var stringified = JSON.stringify(#{movies});
 
 
-    
+    $(document).ready( function () {
+      $('#movie_table').DataTable(
+      {
+        paging: true,
+        data: stringified,
+        "aoColumns": [
+        { "mData": "movie_title" },
+        { "mData": "studio" },
+        { "mData": "year" },
+        { "mData": "box_office" }
+    ]
+
+      });
+    } );

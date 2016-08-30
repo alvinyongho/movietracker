@@ -30,16 +30,15 @@ router.get('/', function(req, res) {
         "data": JSON.parse(JSON.stringify(movies))
 
       }
-      var render_page = function(stringifed = JSON.stringify(result_data)){
-        res.render('index', {
-        title: 'Movies listing',
-        movies: movies,
-        result: stringified
-        });
-      };
+      var stringified = JSON.stringify(result_data));
 
 
-     
+      
+      res.render('index', {
+      title: 'Movies listing',
+      movies: movies,
+      result: result_data
+      });
  
     })
     
@@ -47,6 +46,21 @@ router.get('/', function(req, res) {
 
   
 
+  async.parallel({
+    one: function(callback){
+        setTimeout(function(){
+            callback(null, 1);
+        }, 200);
+    },
+    two: function(callback){
+        setTimeout(function(){
+            callback(null, 2);
+        }, 100);
+    }
+  },
+  function(err, results) {
+      // results is equal to: {one: 1, two: 2}
+  });
 
 
 

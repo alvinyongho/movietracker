@@ -25,17 +25,9 @@ block content
   
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
   script(src='https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/datatables.min.js')
+  script(src='/javascripts/jquery.confirm.min.js')
 
   script.
-    $("#delete-button").click(function(){
-      if(confirm("Are you sure you want to delete this?")){
-        var editLink = aData['id'];
-        $("#delete-button").attr("href", '/movies/' + editLink + '/destroy');
-      }
-      else{
-          return false;
-      }
-    });
     $(document).ready(function() {
       $('#movie-table').DataTable( {
           "ajax": '/movies/api/json',

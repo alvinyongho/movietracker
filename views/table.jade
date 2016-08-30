@@ -13,13 +13,27 @@ block content
         div(class="modal-header")
           button(type="button" class="close" data-dismiss="modal" aria-label="Close")
             span(aria-hidden="true") &times;
-          h4(class="modal-title") Modal title
+          h4(class="modal-title") Add a new Movie
 
         div(class="modal-body")
-          p One fine body&hellip;
+          
+          form(action="/movies/create", method="post", enctype="multipart/form-data")
+            p Movie Title:
+            input(type="text", name="movie_title")
+            p Studio:
+            input(type="text", name="studio")
+            p Year:
+            input(type="text", name="year")
+            p Box Office $:
+            input(type="text", name="box_office")
+            p Picture:
+            input(type="file", name="picture")
+            input(type="submit")
+
+
         div(class="modal-footer")
           button(type="button" class="btn btn-default" data-dismiss="modal") Close
-          button(type="button" class="btn btn-primary") Save changes
+          button(type="button" class="btn btn-primary") Create
 
   table(id="movie-table" class="display")
     thead

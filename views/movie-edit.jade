@@ -1,8 +1,7 @@
 extends layout
 
 block content
-  h2 Edit movie:
-  = movie.movie_title
+  h2 Modify movie named: #{movie.movie_title}
 
 
   form(action="/movies/#{movie.id}/update", method="post", enctype="multipart/form-data")

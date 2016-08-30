@@ -3,8 +3,23 @@ extends layout
 block content
   h1 table goes here
 
-
-
+  table (id="movie-table" class="display" cellspacing="0" width="100%")
+    thead
+      tr
+        th id
+        th movie_title
+        th studio
+        th year
+        th box_office
+        th picture
+    tfoot
+      tr
+        th id
+        th movie_title
+        th studio
+        th year
+        th box_office
+        th picture
 
   
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')

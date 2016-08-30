@@ -46,31 +46,12 @@ router.get('/', function(req, res) {
   });
 
 
-  pool.query(queries.changeDatabaseOrSchema, function(err){
-    if (err) { res.error(err); }
-    else{
-        async.parallel(
-            {
-                recordsFiltered: function(cb) {
-                    myDbObject.query(queries.recordsFiltered, cb);
-                },
-                recordsTotal: function(cb) {
-                    myDbObject.query(queries.recordsTotal, cb);
-                },
-                select: function(cb) {
-                    myDbObject.query(queries.select, cb);
-                }
-            },
-            function(err, results) {
-                if (err) { res.error(err); }
-                else {
-                    res.json(queryBuilder.parseResponse(results));
-                }
-            }
-        );
-    }
-});
-
+  pool.query(queries.changeDatabaseOrSchema, function(err, rows, fields) {
+    if (!err)
+      console.log('The solution is: ', rows);
+    else
+      console.log('Error while performing Query.');
+  });
 
 
 

@@ -35,15 +35,9 @@ block content
             { "data": "studio" },
             { "data": "year" },
             { "data": "box_office" },
-            { "data": "picture" }],
+            { "data": "picture" },
+            { "data": null}],
 
-          "columnDefs": [ {
-            "targets": -1,
-            "data": null,
-            "defaultContent": "<button>Click!</button>"
-          } ],
-
-          
           "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
           "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
             var imgLink = aData['picture']; // if your JSON is 3D

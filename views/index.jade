@@ -79,6 +79,8 @@ block content
     
     var result_data = "#{postAsJSON}";
 
+    result_data = result_data.replace(/&quot;/g,'"');
+
     var parsed = JSON.parse(result_data);
     var resulting_array = [{'data': parsed}];
 
@@ -88,7 +90,7 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        aaData: [result_data],
+        aaData: result_data,
         "aoColumns": [
         { "mData": "movie_title" },
         { "mData": "studio" },

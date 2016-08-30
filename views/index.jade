@@ -88,7 +88,7 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        aaData: resulting_array
+        aaData: [#{postAsJSON}]
 
       });
     } );

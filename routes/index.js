@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
   var page = req.param('page');
   var numrow = req.param('rows');
   var prev_page = 0;
-  var offset = (+page) * (+numrow);
+  var offset = Number(page) * Number(numrow);
   console.log("CURRENT START IS " + offset);
 
 

@@ -30,7 +30,7 @@ block content
     $(".confirm").click(function(){
       if(confirm("Are you sure you want to delete this?")){
         var editLink = aData['id'];
-        $(".confirm").attr("href", '/movies/" + editLink + "/destroy';" + '"');
+        $(".confirm").attr("href", '/movies/" + editLink + "/destroy");
       }
       else{
           return false;

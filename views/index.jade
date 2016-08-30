@@ -50,28 +50,29 @@ block content
   h2 Movies
 
   table
-    th Movie Title
-    th Studio
-    th Year
-    th Box Office
-    th Picture
-    
-    each movie in movies
-      tr
-        td= movie.movie_title
-        td= movie.studio
-        td= movie.year
-        td= movie.box_office
-        if movie.picture
+    tr
+      th Movie Title
+      th Studio
+      th Year
+      th Box Office
+      th Picture
+    tbody
+      each movie in movies
+        tr
+          td= movie.movie_title
+          td= movie.studio
+          td= movie.year
+          td= movie.box_office
+          if movie.picture
+            td
+              img(src="http://panogi.com/#{movie.picture}")
+          else
+            td
+              p Image Missing
+          td 
+            a(href="/movies/" + movie.id + "/destroy") Destroy
           td
-            img(src="http://panogi.com/#{movie.picture}")
-        else
-          td
-            p Image Missing
-        td 
-          a(href="/movies/" + movie.id + "/destroy") Destroy
-        td
-          a(href="/movies/" + movie.id) Update
+            a(href="/movies/" + movie.id) Update
 
   select(id="paginate")
     option(value="5") 5

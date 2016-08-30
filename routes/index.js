@@ -39,7 +39,7 @@ router.get('/', function(req, res) {
     page = 0;
     prev_page = 0;
   } else {
-    prev_page = parseInt(prev_page)-1;
+    prev_page = parseInt(page)-1;
   }
 
 

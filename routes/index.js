@@ -19,9 +19,11 @@ const scheme = {
 /* GET home page. */
 router.get('/', function(req, res) {
 
-  
+  models.Movie.count().then(function(c) {
+    console.log("There are " + c + " movies!")
+  });
 
-  models.Movie.findAll().then(function(movies) {
+  models.Movie.findAll({limit: 10}).then(function(movies) {
     
     res.render('index', {
       title: 'Movies listing',

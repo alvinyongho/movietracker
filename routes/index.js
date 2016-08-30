@@ -21,44 +21,44 @@ router.get('/', function(req, res) {
   var result = {};
 
   var result_data = [];
-  models.Movie.findAll({limit: 10}).then(function(movies) {
-    models.Movie.count().then(function(c) {
-    
-      result_data = {
-        "draw": 1,
-        "recordsTotal": c,
-        "data": JSON.parse(JSON.stringify(movies))
-
-      }
-      var stringified = JSON.stringify(result_data);
-
-
-      
-      res.render('index', {
-      title: 'Movies listing',
-      movies: movies,
-      result: result_data
-      });
- 
-    })
-    
-  });
-
   
 
   async.parallel({
     one: function(callback){
         setTimeout(function(){
-            callback(null, 1);
-        }, 200);
+          models.Movie.count().then(function(c) {
+
+            callback(null, c);
+
+          })
+        }, 1000);
     },
     two: function(callback){
         setTimeout(function(){
-            callback(null, 2);
-        }, 100);
+
+          models.Movie.findAll({limit: 10}).then(function(movies) {
+            callback(null, movies);
+          });
+            
+        }, 1000);
     }
   },
   function(err, results) {
+
+    result_data = {
+        "draw": 1,
+        "recordsTotal": results.one,
+        "data": JSON.parse(JSON.stringify(movies))
+    }
+    
+    var stringified = JSON.stringify(result_data);
+      
+    res.render('index', {
+    title: 'Movies listing',
+    movies: results.two,
+    result: result_data
+    });
+ 
       // results is equal to: {one: 1, two: 2}
   });
 

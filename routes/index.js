@@ -48,12 +48,18 @@ router.get('/', function(req, res) {
     },
     two: function(callback){
         // setTimeout(function(){
-
-          models.Movie.findAll({limit: parseInt(numrow)}).then(function(movies) {
-            callback(null, movies);
-          });
+          if(page=='ALL'){
+            models.Movie.findAll().then(function(movies) {
+              callback(null, movies);
+            });
+          } else if (page=='5' || page=='10' || page=='20') {
+            models.Movie.findAll({limit: parseInt(numrow)}).then(function(movies) {
+              callback(null, movies);
+            });
+          }
             
         // }, 1000);
+          }
     }
   },
   function(err, results) {

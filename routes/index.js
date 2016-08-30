@@ -48,7 +48,7 @@ router.get('/', function(req, res) {
     two: function(callback){
         // setTimeout(function(){
 
-          models.Movie.findAll({limit: numrow}).then(function(movies) {
+          models.Movie.findAll({limit: parseInt(numrow)}).then(function(movies) {
             callback(null, movies);
           });
             

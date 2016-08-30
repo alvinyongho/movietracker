@@ -49,19 +49,19 @@ router.get('/', function(req, res) {
   },
   function(err, results) {
 
-    result_data = {
-        "draw": 1,
-        "recordsTotal": results.one,
-        "data": JSON.parse(JSON.stringify(results.two))
-    }
+    // result_data = {
+    //     "draw": 1,
+    //     "recordsTotal": results.one,
+    //     "data": JSON.parse(JSON.stringify(results.two))
+    // }
     
-    var stringified = JSON.stringify(result_data);
+    // var stringified = JSON.stringify(result_data);
     
     console.log("RESULT DATA IS...." + stringified);
     res.render('index', {
     title: 'Movies listing',
     movies: results.two,
-    resulting_array: stringified
+    // resulting_array: stringified
     });
  
       // results is equal to: {one: 1, two: 2}

@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
     numrow = 20;
   }
 
-  if(!page){
+  if(!page || page==0){
     page = 0;
     prev_page = 0;
   } else {

@@ -22,6 +22,8 @@ router.get('/', function(req, res) {
   var numrow = req.param('rows');
   var prev_page = 0;
 
+  var next_disabled = false;
+  var prev_disabled = false;
 
   var result = {};
 
@@ -84,20 +86,20 @@ router.get('/', function(req, res) {
     
     // console.log("RESULT DATA IS...." + stringified);
 
+    if(numrow == 'ALL'){
+      next_disabled: true,
+      prev_disabled: true
+    }
+
     console.log("COUNT"+results.one);
     res.render('index', {
     title: 'Movies listing',
     movies: results.two,
     next_page: (parseInt(page)+1),
     prev_page: prev_page,
-    numrow: numrow
-
-
-    if(numrow == 'ALL'){
-      next_disabled: true,
-      prev_disabled: true
-    }
-
+    numrow: numrow,
+    next_disabled: next_disabled,
+    prev_disabled: prev_disabled
 
     // resulting_array: stringified
     });

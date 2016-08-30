@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-
+var util = require('util'),
+    expressValidator = require('express-validator');
 
 
 const scheme = {
@@ -22,6 +23,7 @@ router.get('/', function(req, res) {
 
   var page_limit = 5;
 
+  req.checkQuery('limit', 'Invalid getparam').isInt();
   if (req.query.limit){
     page_limit = req.query.limit;
   }

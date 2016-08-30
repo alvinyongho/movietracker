@@ -61,7 +61,7 @@ router.get('/', function(req, res) {
               callback(null, movies);
             });
           } else {
-            models.Movie.findAll({limit: parseInt(numrow), offset: parseInt(offset)}).then(function(movies) {
+            models.Movie.findAll({offset: parseInt(offset), limit: parseInt(numrow)}).then(function(movies) {
               callback(null, movies);
             });
           }

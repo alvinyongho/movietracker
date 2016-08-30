@@ -46,11 +46,11 @@ router.get('/', function(req, res) {
   });
 
 
-  pool.query(queries.changeDatabaseOrSchema, function(err, rows, fields) {
+  pool.query(queries.changeDatabaseOrSchema, function(err) {
     if (!err)
       console.log('The solution is: ', rows);
     else
-      console.log('Error while performing Query.');
+      res.error(err);
   });
 
 

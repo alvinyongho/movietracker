@@ -88,7 +88,13 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        aaData: [result_data]
+        aaData: [result_data],
+        "aoColumns": [
+        { "mData": "movie_title" },
+        { "mData": "studio" },
+        { "mData": "year" },
+        { "mData": "box_office" }
+    ]
 
       });
     } );

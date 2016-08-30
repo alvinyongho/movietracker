@@ -39,7 +39,12 @@ block content
             var imgLink = aData['picture']; // if your JSON is 3D
             // var imgLink = aData[4]; // where 4 is the zero-origin column for 2D
 
-            var imgTag = '<img src="/' + imgLink + '"/>';
+            var imgTag =''
+            if (imgLink == 'null' || imgLink == 'NULL'){
+              imgTag = 'Image is Missing'
+            } else {
+              var imgTag = '<img src="/' + imgLink + '"/>';
+            }
             $('td:eq(4)', nRow).html(imgTag); // where 4 is the zero-origin visible column in the HTML
 
             return nRow;

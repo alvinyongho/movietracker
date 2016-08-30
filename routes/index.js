@@ -24,9 +24,9 @@ router.get('/', function(req, res) {
     models.Movie.count().then(function(c) {
     
       result = {
-        "draw": 0,
+        "draw": 1,
         "recordsTotal": c,
-        "data": JSON.stringify(movies)
+        "data": JSON.parse(movies)
 
       }
       console.log(result);

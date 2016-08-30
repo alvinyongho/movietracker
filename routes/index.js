@@ -21,8 +21,6 @@ router.get('/', function(req, res) {
   var page = req.param('page');
   var numrow = req.param('rows');
   var prev_page = 0;
-  var offset = Number(page) * Number(numrow);
-  console.log("CURRENT START IS " + offset);
 
 
   var result = {};
@@ -41,6 +39,11 @@ router.get('/', function(req, res) {
   } else {
     prev_page = parseInt(page)-1;
   }
+
+  var offset = Number(page) * Number(numrow);
+  console.log("CURRENT START IS " + offset);
+
+
 
 
   async.parallel({

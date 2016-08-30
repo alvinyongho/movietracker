@@ -59,7 +59,7 @@ router.get('/', function(req, res) {
     
     // console.log("RESULT DATA IS...." + stringified);
 
-    console.log("COUNT"+results.two);
+    console.log("COUNT"+results.one);
     res.render('index', {
     title: 'Movies listing',
     movies: results.two,

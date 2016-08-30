@@ -56,6 +56,24 @@ router.get('/', function(req, res) {
   });
 
 
+  async.parallel(
+            {
+                recordsFiltered: function(cb) {
+                    pool.query(queries.recordsFiltered, cb);
+                },
+                recordsTotal: function(cb) {
+                    pool.query(queries.recordsTotal, cb);
+                },
+                select: function(cb) {
+                    pool.query(queries.select, cb);
+                }
+            },function(err, results) {
+                if (err) { console.log("ERROR" + err)}
+                else {
+                    res.json(queryBuilder.parseResponse(results));
+                }
+            });
+
 
 
 

@@ -84,7 +84,7 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: fixed,
+        data: JSON.parse(fixed),
         "columns": [
           { "data": "movie_title" },
           { "data": "studio" },

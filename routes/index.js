@@ -26,7 +26,7 @@ router.get('/', function(req, res) {
       result = {
         "draw": 1,
         "recordsTotal": c,
-        "data": JSON.stringify(movies)
+        "data": movies.toJSON()
 
       }
       console.log(result);

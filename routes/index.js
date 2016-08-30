@@ -86,7 +86,8 @@ router.get('/', function(req, res) {
     title: 'Movies listing',
     movies: results.two,
     next_page: (parseInt(page)+1),
-    prev_page: prev_page
+    prev_page: prev_page,
+    numrow: numrow
 
     // resulting_array: stringified
     });

@@ -79,6 +79,7 @@ block content
     
     var resulting_array = "#{resulting_array}";
     var fixed = resulting_array.replace(/&quot;/g,'"');
+    var fixed_json = JSON.parse(fixed);
 
     $(document).ready( function () {
       $('#movie_table').DataTable(

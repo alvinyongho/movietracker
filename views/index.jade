@@ -88,7 +88,7 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        aaData: [#{movies}]
+        aaData: [#{movies}.replace(/&quot;/g,'"')]
 
       });
     } );

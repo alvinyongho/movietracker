@@ -88,8 +88,7 @@ block content
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: resulting_array,
-        columns: ["movie_title", "studio", "year", "box_office"]
+        aaData: resulting_array
 
       });
     } );

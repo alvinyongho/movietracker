@@ -23,19 +23,18 @@ router.get('/', function(req, res) {
   models.Movie.findAll({limit: 10}).then(function(movies) {
     models.Movie.count().then(function(c) {
     
-      result = {
-        "draw": 1,
-        "recordsTotal": c,
-        "data": JSON.parse(JSON.stringify(movies))
 
-      }
-      console.log(result);
 
       
       res.render('index', {
       title: 'Movies listing',
       movies: movies,
-      result: result
+      result: {
+        "draw": 1,
+        "recordsTotal": c,
+        "data": JSON.parse(JSON.stringify(movies))
+
+      }
       });
  
     })

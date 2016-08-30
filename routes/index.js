@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-var util = require('util'),
-    expressValidator = require('express-validator');
 
+var async = require('async'),
+    QueryBuilder = require('datatable');
 
 const scheme = {
 
@@ -21,16 +21,22 @@ const scheme = {
 /* GET home page. */
 router.get('/', function(req, res) {
 
-  var page_limit = 5;
+  var tableDefinition = {
+    sTableName: 'Movie'
+  };
 
-  req.checkQuery('limit', 'Invalid getparam').isInt();
-  if (req.query.limit){
-    page_limit = req.query.limit;
-  }
+  var queryBuilder = new QueryBuilder(tableDefinition);
+  var requestQuery = {
+    iDisplayStart: 0,
+    iDisplayLength: 5
+  };
+
+  var queries = queryBuilder.buildQuery(requestQuery);
+
+  console.log(queries);
 
 
-
-  models.Movie.findAll({ limit: page_limit }).then(function(movies) {
+  models.Movie.findAll({limit: 1}).then(function(movies) {
     
     res.render('index', {
       title: 'Movies listing',

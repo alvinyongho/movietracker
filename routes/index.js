@@ -102,10 +102,7 @@ router.get('/', function(req, res) {
 
 });
 
-router.get('/table', function(req, res) {
-  res.render('table', {
-  });
-});
+
 
 
 module.exports = router;

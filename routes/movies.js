@@ -371,4 +371,10 @@ router.get('/api/json', function(req, res) {
 });
 
 
+
+router.get('/table/datatable', function(req, res) {
+  res.render('table', {
+  });
+});
+
 module.exports = router;

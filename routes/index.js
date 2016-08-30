@@ -30,14 +30,14 @@ router.get('/', function(req, res) {
         "data": JSON.parse(JSON.stringify(movies))
 
       }
-      console.log(JSON.stringify(result_data));
+      var stringified = JSON.stringify(result_data);
 
 
       
       res.render('index', {
       title: 'Movies listing',
       movies: movies,
-      result: result_data
+      result: stringified
       });
  
     })

@@ -18,10 +18,11 @@ const scheme = {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  var start = req.param('start');
-  var end = req.param('end');
+  var page = req.param('page');
   var numrow = req.param('rows');
 
+  var current_start = parseInt(page) * parseInt(numrow);
+  console.log("CURRENT START IS " + current_start);
 
 
   var result = {};

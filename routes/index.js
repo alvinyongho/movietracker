@@ -35,6 +35,10 @@ router.get('/', function(req, res) {
     numrow = 20;
   }
 
+  if(!page){
+    page = 0;
+  }
+
 
   async.parallel({
     one: function(callback){
@@ -78,6 +82,7 @@ router.get('/', function(req, res) {
     res.render('index', {
     title: 'Movies listing',
     movies: results.two,
+    next_page: (page+1)
 
     // resulting_array: stringified
     });

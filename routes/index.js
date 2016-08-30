@@ -18,33 +18,30 @@ const scheme = {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-
-  
+  var result = {};
 
   models.Movie.findAll({limit: 10}).then(function(movies) {
+    console.log(JSON.stringify(movies));
+    models.Movie.count().then(function(c) {
     
-    res.render('index', {
+      result = {
+        "draw": 0,
+        "recordsTotal": c,
+        "data": movies
+
+      }
+      console.log(result);
+
+      
+      res.render('index', {
       title: 'Movies listing',
       movies: movies
-    });
-
-    console.log(JSON.stringify(movies));
-
-
-    console.log(models.Movie.count());
-    // result = {
-    //   draw: 0,
-    //   recordsTotal: models.Movie.count()
-
-
-    // }
-
-
+      });
+ 
+    }
+    
   });
 
-    // (models.Movie.findAll().then(function(movies) {
-    //   console.log(JSON.stringify(movies))
-    // }));
 });
 
 module.exports = router;

@@ -20,6 +20,7 @@ const scheme = {
 router.get('/', function(req, res) {
   var result = {};
 
+  var result_data = [];
   models.Movie.findAll({limit: 10}).then(function(movies) {
     models.Movie.count().then(function(c) {
     
@@ -35,7 +36,7 @@ router.get('/', function(req, res) {
       res.render('index', {
       title: 'Movies listing',
       movies: movies,
-      result: JSON.stringify(result_data)
+      result: result_data
       });
  
     })

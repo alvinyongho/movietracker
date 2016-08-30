@@ -22,7 +22,8 @@ const scheme = {
 router.get('/', function(req, res) {
 
   var tableDefinition = {
-    sTableName: 'Movies'
+    sTableName: 'Movies',
+    sDatabaseOrSchema: "USE"
   };
 
   var queryBuilder = new QueryBuilder(tableDefinition);

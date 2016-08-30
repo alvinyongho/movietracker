@@ -19,3 +19,83 @@ block content
     p Picture:
     input(type="file", name="picture")
     input(type="submit")
+
+
+
+  h2 Movies
+
+  table
+    tr
+      th Movie Title
+      th Studio
+      th Year
+      th Box Office
+      th Picture
+    each movie in movies
+      tr
+        td= movie.movie_title
+        td= movie.studio
+        td= movie.year
+        td= movie.box_office
+        if movie.picture
+          td
+            img(src="http://panogi.com/#{movie.picture}")
+        else
+          td
+            p Image Missing
+        td 
+          a(href="/movies/" + movie.id + "/destroy") Destroy
+        td
+          a(href="/movies/" + movie.id) Update
+
+  
+  p Number of rows
+  select(id="paginate")
+    option(value=5) 5
+    option(value=10) 10
+    option(value=20) 20
+    option(value=ALL) ALL
+
+
+  a(id="prev-button", class='button', href='?page=#{prev_page}&row=#{numrow}') Previous Page
+  a(id="next-button", class='button', href='?page=#{next_page}&row=#{numrow}') Next Page
+
+
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+
+
+  script.
+    $(function(){
+      // bind change event to select
+      $('#paginate').on('change', function () {
+          var url = '/movietracker?page=0&rows=' + $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+    });
+
+    if("#{numrow}" == 5){
+      $('#paginate').val("5")
+    }
+    if("#{numrow}" == 10){
+      $('#paginate').val("10")
+
+
+    }
+    if("#{numrow}" == 20){
+      $('#paginate').val("20")
+
+
+    }
+    if("#{numrow}" == 'ALL'){
+      $('#paginate').val("ALL")
+      $('#prev-button').hide();
+      $('#next-button').hide();
+
+
+    }
+
+

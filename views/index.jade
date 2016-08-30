@@ -77,7 +77,7 @@ block content
 
   script.
     
-    var resulting_array = "#{resulting_array}".replace(/&quot;/g,'"');
+    var resulting_array = JSON.parse(#{resulting_array}.replace(/&quot;/g,'"'));
 
     $(document).ready( function () {
       $('#movie_table').DataTable(

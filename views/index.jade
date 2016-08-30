@@ -62,8 +62,12 @@ block content
         td= movie.studio
         td= movie.year
         td= movie.box_office
-        td
-          img(src="http://panogi.com/#{movie.picture}")
+        if movie.picture
+          td
+            img(src="http://panogi.com/#{movie.picture}")
+        else
+          td
+            Image Missing
         td 
           a(href="/movies/" + movie.id + "/destroy") Destroy
         td

@@ -34,6 +34,17 @@ block content
             { "data": "year" },
             { "data": "box_office" },
             { "data": "picture" }],
-          "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]]
+          "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+          "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+            var imgLink = aData['picture']; // if your JSON is 3D
+            // var imgLink = aData[4]; // where 4 is the zero-origin column for 2D
+
+            var imgTag = '<img src="' + imgLink + '"/>';
+            $('td:eq(4)', nRow).html(imgTag); // where 4 is the zero-origin visible column in the HTML
+
+            return nRow;
+          }
+
+          
       } );
     } );

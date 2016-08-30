@@ -29,6 +29,10 @@ block content
 
   script.
     $(document).ready(function() {
+
+      $(".confirm").confirm();
+
+      
       $('#movie-table').DataTable( {
           "ajax": '/movies/api/json',
           "columns": [

@@ -69,29 +69,3 @@ block content
         td
           a(href="/movies/" + movie.id) Update
 
-
-
-
-  script(type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/b-1.2.2/datatables.min.js")
-
-
-  script.
-    
-    var result_data = JSON.stringify(#{postAsJSON});
-    var result_aaData = {"data": result_data};
-
-
-    $(document).ready( function () {
-      $('#movie_table').DataTable(
-      {
-        paging: true,
-        aaData: result_aaData,
-        "aoColumns": [
-        { "mData": "movie_title" },
-        { "mData": "studio" },
-        { "mData": "year" },
-        { "mData": "box_office" }
-    ]
-
-      });
-    } );

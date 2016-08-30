@@ -21,13 +21,12 @@ router.get('/', function(req, res) {
   var result = {};
 
   models.Movie.findAll({limit: 10}).then(function(movies) {
-    console.log(JSON.stringify(movies));
     models.Movie.count().then(function(c) {
     
       result = {
         "draw": 0,
         "recordsTotal": c,
-        "data": movies
+        "data": JSON.stringify(movies)
 
       }
       console.log(result);

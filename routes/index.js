@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
 
   var queries = queryBuilder.buildQuery(requestQuery);
 
-  console.log(queries);
+  console.log("THE QUERIES VARIABLE@@@: " + queries);
 
 
   models.Movie.findAll({limit: 1}).then(function(movies) {

@@ -75,10 +75,11 @@ block content
 
   
   p Number of rows
-  a(class='button', href='?rows=5') 5
-  a(class='button', href='?rows=10') 10
-  a(class='button', href='?rows=20') 20
-  a(class='button', href='?rows=ALL') ALL
+  select(id=paginate)
+    option(value=5) 5
+    option(value=10) 10
+    option(value=20) 20
+    option(value=ALL) ALL
 
 
   a(class='button', href='?page=#{prev_page}') Previous Page

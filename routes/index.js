@@ -87,8 +87,8 @@ router.get('/', function(req, res) {
     // console.log("RESULT DATA IS...." + stringified);
 
     if(numrow == 'ALL'){
-      next_disabled: true,
-      prev_disabled: true
+      next_disabled: true;
+      prev_disabled: true;
     }
 
     console.log("COUNT"+results.one);

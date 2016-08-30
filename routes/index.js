@@ -23,7 +23,6 @@ router.get('/', function(req, res) {
 
   var tableDefinition = {
     sTableName: 'Movies',
-    sDatabaseOrSchema: true
   };
 
   var queryBuilder = new QueryBuilder(tableDefinition);
@@ -49,7 +48,7 @@ router.get('/', function(req, res) {
 
 
 
-  pool.query(queries.changeDatabaseOrSchema, function(err){
+  pool.query(queries, function(err){
     if (err) { console.log(err); }
     else{
         async.parallel(

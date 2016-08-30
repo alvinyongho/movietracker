@@ -47,32 +47,7 @@ router.get('/', function(req, res) {
 
 
 
-
-  pool.query(queries, function(err){
-    if (err) { console.log(err); }
-    else{
-        async.parallel(
-            {
-                recordsFiltered: function(cb) {
-                    myDbObject.query(queries.recordsFiltered, cb);
-                },
-                recordsTotal: function(cb) {
-                    myDbObject.query(queries.recordsTotal, cb);
-                },
-                select: function(cb) {
-                    myDbObject.query(queries.select, cb);
-                }
-            },
-            function(err, results) {
-                if (err) { console.log(err); }
-                else {
-                    res.json(queryBuilder.parseResponse(results));
-                }
-            }
-        );
-    }
-});
-
+  console.log(queries.recordsFiltered);
 
 
 

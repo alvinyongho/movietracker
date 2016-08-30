@@ -19,9 +19,14 @@ const scheme = {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  
 
-  models.Movie.findAll().then(function(movies) {
+
+  if (!req.query.limit){
+    console.log('NO LIMIT@@@@@@')
+  }
+
+
+  models.Movie.findAll({ limit: 5 }).then(function(movies) {
     
     res.render('index', {
       title: 'Movies listing',

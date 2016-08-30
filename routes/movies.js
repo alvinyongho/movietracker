@@ -362,7 +362,7 @@ router.get('/api/json', function(req, res) {
     
     // console.log("RESULT DATA IS...." + stringified);
     
-    res.set({ 'content-type': 'application/json;charset=utf-8' })
+    res.setHeader('Content-Type', 'application/json');
     res.json(result_data);
 
   });

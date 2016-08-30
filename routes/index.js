@@ -48,10 +48,16 @@ router.get('/', function(req, res) {
     },
     two: function(callback){
         // setTimeout(function(){
-          
-          models.Movie.findAll({limit: parseInt(numrow)}).then(function(movies) {
-            callback(null, movies);
-          });
+
+          if (numrow == 'ALL'){
+            models.Movie.findAll().then(function(movies) {
+              callback(null, movies);
+            });
+          } else {
+            models.Movie.findAll({limit: parseInt(numrow)}).then(function(movies) {
+              callback(null, movies);
+            });
+          }
             
         // }, 1000);
     }

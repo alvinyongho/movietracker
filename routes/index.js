@@ -49,7 +49,7 @@ router.get('/', function(req, res) {
     res.render('index', {
       title: 'Movies listing',
       movies: movies,
-      postAsJSON: JSON.stringify(movies)
+      postAsJSON: movies
     });
   });
 

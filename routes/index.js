@@ -28,7 +28,6 @@ var pool      =    mysql.createPool({
     user     : 'movieadmin',
     password : 'cse135_Nodeapp',
     database : 'movieapp'
-    debug    :  false
 });
  
 function handle_database(req,res) {

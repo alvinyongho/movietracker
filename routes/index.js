@@ -38,41 +38,21 @@ router.get('/', function(req, res) {
 
   // Connect to ymsql
   var mysql      = require('mysql');
-  var connection = mysql.createConnection({
+  var pool = mysql.createPool({
     host     : '127.0.0.1',
     user     : 'movieadmin',
     password : 'cse135_Nodeapp',
     database : 'movieapp'
   });
 
-  connection.connect();
 
-  connection.query(queries.changeDatabaseOrSchema, function(err){
-    if (err) { res.error(err); }
-    else{
-        async.parallel(
-            {
-                recordsFiltered: function(cb) {
-                    myDbObject.query(queries.recordsFiltered, cb);
-                },
-                recordsTotal: function(cb) {
-                    myDbObject.query(queries.recordsTotal, cb);
-                },
-                select: function(cb) {
-                    myDbObject.query(queries.select, cb);
-                }
-            },
-            function(err, results) {
-                if (err) { res.error(err); }
-                else {
-                    res.json(queryBuilder.parseResponse(results));
-                }
-            }
-        );
-    }
+  pool.query('SELECT * from Movies', function(err, rows, fields) {
+    if (!err)
+      console.log('The solution is: ', rows);
+    else
+      console.log('Error while performing Query.');
   });
 
-  connection.end();
 
 
 

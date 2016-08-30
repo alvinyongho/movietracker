@@ -31,6 +31,9 @@ const scheme = {
 /* GET home page. */
 router.get('/', function(req, res) {
   
+  var cylonsoft_sequelize_datatables = require('cylonsoft-sequelize-datatables');
+  cylonsoft_sequelize_datatables.awesome();
+
   var tableDefinition = {
     sTableName: 'Movie'
   };

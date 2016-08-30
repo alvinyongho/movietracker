@@ -77,7 +77,7 @@ block content
 
   script.
     
-    var result_data = "#{postAsJSON}".replace(/&quot;/g,'"');
+    var result_data = "#{postAsJSON}";
 
     var parsed = JSON.parse(result_data);
     var resulting_array = [{'data': parsed}];

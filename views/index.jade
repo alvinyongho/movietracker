@@ -77,15 +77,13 @@ block content
 
   script.
     
-    var result_data = JSON.stringify(#{postAsJSON});
-    var result_aaData = {"data": result_data};
 
 
     $(document).ready( function () {
       $('#movie_table').DataTable(
       {
         paging: true,
-        data: result,
+        data: #{result},
         "aoColumns": [
         { "mData": "movie_title" },
         { "mData": "studio" },

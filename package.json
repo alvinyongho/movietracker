@@ -10,6 +10,7 @@
     "body-parser": "~1.15.1",
     "cheerio": "^0.22.0",
     "cookie-parser": "~1.4.3",
+    "cylonsoft-sequelize-datatables": "^0.1.4",
     "datatable": "^2.0.2",
     "datatables": "^1.10.12",
     "datatables.net": "^1.10.12",

@@ -82,7 +82,7 @@ router.get('/', function(req, res) {
     res.render('index', {
     title: 'Movies listing',
     movies: results.two,
-    next_page: (page+1)
+    next_page: (parseInt(page)+1)
 
     // resulting_array: stringified
     });

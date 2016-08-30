@@ -10,7 +10,7 @@ var users = require('./routes/users');
 var movies = require('./routes/movies');
 
 var multer = require('multer');
-
+var expressValidator = require('express-validator');
 
 var app = express();
 
@@ -32,6 +32,8 @@ app.use('/movies', movies);
 
 app.use(multer({dest:'./uploads/'}).single('picture'));
 
+app.use(express.bodyParser());
+app.use(expressValidator([options]));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

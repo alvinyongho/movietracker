@@ -34,6 +34,9 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   
   // console.dir('THE FILE IS' + req.file);
 
+  
+
+
   if(req.file){
 
     var result_name = req.file['filename'];

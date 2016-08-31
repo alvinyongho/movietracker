@@ -29,7 +29,15 @@ p {
   width: 75%;
 }
 
-#th{
+#movie-table-head{
+	text-align: center;
+}
+
+.th{
+	text-align: center
+}
+
+#movie-table-foot{
 	text-align: center;
 }
 

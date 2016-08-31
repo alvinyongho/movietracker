@@ -49,7 +49,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
 
 
   if(!validator.isCurrency(req.body.box_office)){
-    renderError(res, "Invalid Currency. Make sure it's in the format" +  String.fromCharCode(36) +'100.00');
+    renderError(res, "Invalid Currency. Make sure it's in the format including dollar symbol: " +  String.fromCharCode(36) +'100.00');
   }
   if(req.file){
 
@@ -308,6 +308,11 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
 
   console.dir(req.file);
 
+
+  if(!validator.isCurrency(req.body.box_office)){
+    renderError(res, "Invalid Currency. Make sure it's in the format including dollar symbol: " +  String.fromCharCode(36) +'100.00');
+  }
+
   if(req.file){
     console.log("WE HAVE A FILE!!!");
     result_name = req.file['filename'];
@@ -323,14 +328,19 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
 
   } else {
 
-    models.Movie.findById(req.params.movie_id).then(function(movie) {
 
-      console.log("the result is the previous name: " + movie.picture);
-      var prev_pic = movie.picture;
 
-      updateMovie(req, res, result_name, prev_pic)
+    renderError(res, 'No file found. Please try again.')
 
-    })
+
+    // models.Movie.findById(req.params.movie_id).then(function(movie) {
+
+    //   console.log("the result is the previous name: " + movie.picture);
+    //   var prev_pic = movie.picture;
+
+    //   updateMovie(req, res, result_name, prev_pic)
+
+    // })
 
 
   }

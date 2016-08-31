@@ -29,11 +29,7 @@ p {
   width: 75%;
 }
 
-#movie-table-head{
-	text-align: center;
-}
-
-#movie-table-foot{
+#th{
 	text-align: center;
 }
 

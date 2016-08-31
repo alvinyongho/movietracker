@@ -10,16 +10,16 @@ block content
 
     form(action="/movies/#{movie.id}/update", method="post", enctype="multipart/form-data")
       p Movie Title:
-      input(type="text", name="movie_title", value="#{movie.movie_title}")
+      input(id="movie-title-field" class="form-control" type="text", name="movie_title", value="#{movie.movie_title}")
       p Studio:
-      input(type="text", name="studio", value="#{movie.studio}")
+      input(id="movie-studio-field" class="form-control" type="text", name="studio", value="#{movie.studio}")
       p Year:
-      input(type="text", name="year", value="#{movie.year}")
+      input(id="movie-year-field" class="form-control" type="text", name="year", value="#{movie.year}")
       p Box Office $:
-      input(type="text", name="box_office", value="#{movie.box_office}")
+      input(id="movie-box-office-field" class="form-control" type="text", name="box_office", value="#{movie.box_office}")
       p Picture:
-      input(type="file", name="picture", value="#{movie.picture}")
-      input(type="submit" class="btn btn-primary")
+      input(id="movie-picture-field" class="form-control" type="file", name="picture", value="#{movie.picture}")
+      button(type="submit" class="btn btn-primary")
 
 
     img(src="http://panogi.com/#{movie.picture}")

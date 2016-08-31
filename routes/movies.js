@@ -51,7 +51,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   }
 
   else if(!validator.isLength(req.body.studio, {min:1, max: 25})){
-    renderError(res, "Invalid title. Make sure it is between 1 to 25 characters long.");
+    renderError(res, "Invalid studio name. Make sure it is between 1 to 25 characters long.");
   }
 
   else if(!validator.isCurrency(req.body.box_office)){

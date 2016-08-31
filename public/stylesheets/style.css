@@ -29,6 +29,13 @@ p {
   width: 75%;
 }
 
+#movie-table-head{
+	text-align: center;
+}
+
+#movie-table-foot{
+	text-align: center;
+}
 
 /*
 .sorting_asc{

@@ -72,26 +72,24 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
 
     var valid_extensions = ['.jpg', '.jpeg', '.bmp', '.png', '.gif'];
 
-    function findExtension(extension) { 
-      return extension;
-    }
-    console.log(valid_extensions.find(result_name));
 
-    // check if the file type is not ok
+    if (!(valid_extensions.indexOf(path.extname(req.file['filename'])) > -1)) {
+        renderError(res, "Invalid File type");
+  
+    } else {
 
-
-    // else
-    models.Movie.create({
+      models.Movie.create({
       movie_title: req.body.movie_title,
       studio: req.body.studio,
       year: req.body.year,
       box_office: req.body.box_office,
       picture: 'images/uploads/' + result_name
-    }).then(function() {
-      res.redirect('/movies/table/datatable');
-    });
+      }).then(function() {
+        res.redirect('/movies/table/datatable');
+      });
 
 
+    }
 
 
   } 

@@ -91,23 +91,6 @@ block content
 
     $(document).ready(function() {
 
-      $("#create-movie-form").submit(function(event) {
-        /* stop form from submitting normally */
-        event.preventDefault();
-
-        /* get the action attribute from the <form action=""> element */
-        var $form = $( this ),
-            url = $form.attr( 'action' );
-
-        /* Send the data using post with element id name and name2*/
-        var posting = $.post( url, { movie_title: $('#movie-title-field').val(), studio: $('#movie-title-field').val(), year: $('#movie-year-field').val() , box_office: $('#movie-box-office-field').val() , picture: $('#movie-picture-field').val() } );
-
-        /* Alerts the results */
-        posting.done(function( data ) {
-          alert('success');
-        });
-      });
-
       $('#movie-table').DataTable( {
           "ajax": '/movies/api/json',
           "autoWidth":false,

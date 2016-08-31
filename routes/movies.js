@@ -328,21 +328,6 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   }
 
 
-
-
-
-    // models.Movie.findById(req.params.movie_id).then(function(movie) {
-
-    //   console.log("the result is the previous name: " + movie.picture);
-    //   var prev_pic = movie.picture;
-
-    //   updateMovie(req, res, result_name, prev_pic)
-
-    // })
-
-
-  }
-
  
 });
 

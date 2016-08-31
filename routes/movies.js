@@ -324,11 +324,9 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
     models.Movie.findById(req.params.movie_id).then(function(movie) {
       console.log("FOUND MOVIE!!!!!" + movie.picture)
 
-      if (!movie.picture || movie.picture=='images/uploads/'){
-        
+      if (!movie.picture || movie.picture=='images/uploads/'){        
         renderError(res, 'No file found. Please try again.')
 
-        
       } else {
         updateMovie(req, res, result_name, movie.picture)
   

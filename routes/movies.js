@@ -48,13 +48,12 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   // console.dir('THE FILE IS' + req.file);
 
 
-
-
+  if(!validator.isCurrency(req.body.box_office)){
+    renderError(res, 'Invalid Currency. Make sure it's in the format' +  String.fromCharCode(36) +'100.00');
+  }
   if(req.file){
 
-    if(req.file.extname != '.jpg' || req.file.extname != '.png' || req.file.extname != '.jpeg' || req.file.extname != '.bmp' || req.file.extname != '.gif'){
-      renderError(res, 'You did not upload a valid filetype');
-    }
+    
     var result_name = req.file['filename'];
 
 

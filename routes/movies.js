@@ -10,14 +10,24 @@ var validator = require('validator');
 
 var upload_dir = 'public/images/uploads/';
 
+
+
+function renderError(error_message){
+  res.render('invalid', {
+      error_message: 'error_message'
+    });
+}
+
+
+
 var storage = multer.diskStorage({
   destination: upload_dir,
   filename: function (req, file, cb) {
     
-    console.log('MIME TYPE IS@@@@' + file.mimetype);
+    // console.log('MIME TYPE IS@@@@' + file.mimetype);
 
-    if(file.mimetype.startsWith("image/")){
-      console.log('YES ITS AN IMAGE!!!!');
+    if(!file.mimetype.startsWith("image/")){
+      renderError('You did not upload an image!');
     }
 
     crypto.pseudoRandomBytes(16, function (err, raw) {

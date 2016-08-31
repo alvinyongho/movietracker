@@ -25,16 +25,20 @@ p {
 
 
 .sorting {
-  font-size: 2vmin;
+  font-size: 3vmin;
 }
 
 .sorting_asc{
-  font-size: 2vmin;
+  font-size: 3vmin;
 
 }
 .sorting_desc{
-  font-size: 2vmin;
+  font-size: 3vmin;
 
+}
+
+.btn{
+  font-size: 3vmin;
 }
 
 .centered_table{

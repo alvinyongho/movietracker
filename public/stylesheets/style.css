@@ -11,3 +11,10 @@ img{
 	width: 50%;
     height: auto;
 }
+
+.centered_table{
+	margin: auto;
+    width: 50%;
+    /*border: 3px solid green;*/
+    padding: 10px;
+}

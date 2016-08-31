@@ -12,9 +12,9 @@ var upload_dir = 'public/images/uploads/';
 
 
 
-function renderError(res, error_message){
+function renderError(res, err){
   res.render('invalid', {
-      error_message: error_message;
+      error_message: err
     });
 }
 

@@ -46,6 +46,14 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   
   // console.dir('THE FILE IS' + req.file);
 
+  if(!validator.isLength(req.body.movie_title, {min:1, max: 50})){
+    renderError(res, "Invalid title. Make sure it is between 1 to 50 characters long.");
+  }
+
+
+  if(!validator.isLength(req.body.studio, {min:1, max: 25})){
+    renderError(res, "Invalid title. Make sure it is between 1 to 25 characters long.");
+  }
 
   if(!validator.isCurrency(req.body.box_office)){
     renderError(res, "Invalid Currency. Make sure it's in the format including dollar symbol: " +  String.fromCharCode(36) +'100.00');
@@ -312,6 +320,14 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   var result_name = "";
 
   console.dir(req.file);
+
+  if(!validator.isLength(req.body.movie_title, {min:1, max: 50})){
+    renderError(res, "Invalid title. Make sure it is between 1 to 50 characters long.");
+  }
+
+  if(!validator.isLength(req.body.studio, {min:1, max: 25})){
+    renderError(res, "Invalid title. Make sure it is between 1 to 25 characters long.");
+  }
 
 
   if(!validator.isCurrency(req.body.box_office)){

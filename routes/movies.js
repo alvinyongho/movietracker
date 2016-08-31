@@ -263,7 +263,7 @@ router.get('/:movie_id/destroy', function(req, res) {
       id: req.params.movie_id
     }
   }).then(function() {
-    res.redirect('/movietracker');
+    res.redirect('/movies/table/datatable');
   });
 });
 
@@ -273,7 +273,7 @@ router.post('/:movie_id/destroy', function(req, res) {
       id: req.params.movie_id
     }
   }).then(function() {
-    res.redirect('/movietracker');
+    res.redirect('/movies/table/datatable');
   });
 });
 

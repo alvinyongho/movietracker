@@ -24,7 +24,7 @@ p {
 }
 
 
-.movie-table {
+#movie-table {
   margin: auto;
   width: 75%;
   padding:10px;

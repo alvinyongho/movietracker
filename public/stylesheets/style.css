@@ -23,6 +23,11 @@ p {
   font-size: 2vmin;
 }
 
+
+.sorting {
+  font-size: 2vmin;
+}
+
 .centered_table{
 	margin: auto;
     width: 75%;

@@ -70,6 +70,12 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
     var result_name = req.file['filename'];
 
 
+    console.log(path.extname(result_name));
+
+    // check if the file type is not ok
+
+
+    // else
     models.Movie.create({
       movie_title: req.body.movie_title,
       studio: req.body.studio,
@@ -79,6 +85,9 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
     }).then(function() {
       res.redirect('/movies/table/datatable');
     });
+
+
+
 
   } 
 

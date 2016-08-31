@@ -19,7 +19,7 @@ img{
     padding: 10px;
 }
 
-.centered_div{
+#centered_div{
 	margin: auto;
     width: 75%;
     /*border: 3px solid green;*/

@@ -50,22 +50,23 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
     renderError(res, "Invalid title. Make sure it is between 1 to 50 characters long.");
   }
 
-
-  if(!validator.isLength(req.body.studio, {min:1, max: 25})){
+  else if(!validator.isLength(req.body.studio, {min:1, max: 25})){
     renderError(res, "Invalid title. Make sure it is between 1 to 25 characters long.");
   }
 
-  if(!validator.isCurrency(req.body.box_office)){
+  else if(!validator.isCurrency(req.body.box_office)){
     renderError(res, "Invalid Currency. Make sure it's in the format including dollar symbol: " +  String.fromCharCode(36) +'100.00');
   }
 
-
-  if(!validator.isInt(req.body.year,{min: 1990, max: 2016})){
+  else if(!validator.isInt(req.body.year,{min: 1990, max: 2016})){
     renderError(res, "Invalid Year. Make sure it's in the format: between 1990 and 2016");
   }
 
-  if(req.file){
-
+  else if(!req.file){
+    res.render('invalid', {
+      error_message: 'No file uploaded. Please try again.'
+    });
+  } else {
     
     var result_name = req.file['filename'];
 
@@ -80,27 +81,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
       res.redirect('/movies/table/datatable');
     });
 
-  } else {
-
-
-    // Direct to error page
-    res.render('invalid', {
-      error_message: 'No file uploaded. Please try again.'
-    });
-
-
-
-    // models.Movie.create({
-    //   movie_title: req.body.movie_title,
-    //   studio: req.body.studio,
-    //   year: req.body.year,
-    //   box_office: req.body.box_office,
-    //   picture: 'null'
-    // }).then(function() {
-    //   res.redirect('/movietracker');
-    // });
-
-  }
+  } 
 
 
   
@@ -328,7 +309,6 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   if(!validator.isLength(req.body.studio, {min:1, max: 25})){
     renderError(res, "Invalid title. Make sure it is between 1 to 25 characters long.");
   }
-
 
   if(!validator.isCurrency(req.body.box_office)){
     renderError(res, "Invalid Currency. Make sure it's in the format including dollar symbol: " +  String.fromCharCode(36) +'100.00');

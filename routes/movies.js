@@ -13,6 +13,9 @@ var upload_dir = 'public/images/uploads/';
 var storage = multer.diskStorage({
   destination: upload_dir,
   filename: function (req, file, cb) {
+    
+    console.log('MIME TYPE IS@@@@' + file.mimetype);
+
     crypto.pseudoRandomBytes(16, function (err, raw) {
       if (err) return cb(err)
 
@@ -42,7 +45,6 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   if(req.file){
 
     var result_name = req.file['filename'];
-    console.log('result_name')
 
 
     models.Movie.create({

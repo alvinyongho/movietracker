@@ -75,7 +75,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
     function findExtension(extension) { 
       return extension;
     }
-    console.log(valid_extensions.find((path.extname(req.file['filename'])).toString());
+    console.log(valid_extensions.find(result_name));
 
     // check if the file type is not ok
 

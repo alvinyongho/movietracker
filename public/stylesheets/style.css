@@ -31,8 +31,7 @@ p {
 }
 
 #movie-table td {
-	border-left: 1px solid #000;
-	border-right: 1px solid #000;
+	border: 1px solid #000;
 }
 /*
 .sorting_asc{

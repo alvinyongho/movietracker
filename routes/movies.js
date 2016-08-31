@@ -71,8 +71,8 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
 
 
     models.Movie.create({
-      movie_title: validator.trim(validator.escape(req.body.movie_title)),
-      studio: validator.trim(validator.escape(req.body.studio)),
+      movie_title: req.body.movie_title,
+      studio: req.body.studio,
       year: req.body.year,
       box_office: req.body.box_office,
       picture: 'images/uploads/' + result_name

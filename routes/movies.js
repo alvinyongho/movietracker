@@ -54,7 +54,6 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
 
   if(!validator.isInt(req.body.year,{min: 1990, max: 2016})){
     renderError(res, "Invalid Year. Make sure it's in the format: between 1990 and 2016");
-
   }
 
   if(req.file){
@@ -317,6 +316,10 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
 
   if(!validator.isCurrency(req.body.box_office)){
     renderError(res, "Invalid Currency. Make sure it's in the format including dollar symbol: " +  String.fromCharCode(36) +'100.00');
+  }
+
+  if(!validator.isInt(req.body.year,{min: 1990, max: 2016})){
+    renderError(res, "Invalid Year. Make sure it's in the format: between 1990 and 2016");
   }
 
   if(req.file){

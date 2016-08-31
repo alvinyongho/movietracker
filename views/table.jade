@@ -3,11 +3,13 @@ extends layout
 
 block content
 
+  div(id="add_header")
+    button(class="btn btn-default centered_button" id="new-entry" type="button" data-toggle="modal" data-target="#createModal") Add Movie
+    
   div(id="header")
     h1 $$$Gross Movies
 
-  div(id="add_header")
-    button(class="btn btn-default centered_button" id="new-entry" type="button" data-toggle="modal" data-target="#createModal") Add Movie
+
 
   
   div(class="modal fade" id="createModal" tabindex="-1" role="dialog")

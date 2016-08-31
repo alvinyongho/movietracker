@@ -14,7 +14,12 @@ var storage = multer.diskStorage({
   destination: upload_dir,
   filename: function (req, file, cb) {
     crypto.pseudoRandomBytes(16, function (err, raw) {
-      if (err) return cb(err)
+      if (err){
+        res.render('invalid', {
+          error_message: 'No file uploaded. Please try again.'
+        });
+        return cb(err)
+      }
 
       cb(null, raw.toString('hex') + path.extname(file.originalname))
     })
@@ -40,12 +45,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   console.log("THE FILE EXTENSION OF... FILE WAS" + path.extname(req.file));
 
 
-  if(!req.file){
-    res.render('invalid', {
-      error_message: 'No file uploaded. Please try again.'
-    });
-  }
-  
+
   if(req.file){
 
     var result_name = req.file['filename'];

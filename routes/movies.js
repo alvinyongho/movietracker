@@ -330,7 +330,6 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
 
         
       } else {
-        result_name = req.file['filename'];
         updateMovie(req, res, result_name, movie.picture)
   
       }

@@ -40,6 +40,12 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   console.log("THE FILE EXTENSION OF... FILE WAS" + path.extname(req.file));
 
 
+  if(!req.file){
+    res.render('invalid', {
+      error_message: 'No file uploaded. Please try again.'
+    });
+  }
+  
   if(req.file){
 
     var result_name = req.file['filename'];

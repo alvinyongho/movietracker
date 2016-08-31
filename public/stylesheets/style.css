@@ -27,6 +27,12 @@ p {
 #movie-table {
   margin: auto;
   width: 100%;
+  text-align: center;
+}
+
+#movie-table td {
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
 }
 /*
 .sorting_asc{

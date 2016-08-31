@@ -14,7 +14,7 @@ var upload_dir = 'public/images/uploads/';
 
 function renderError(res, error_message){
   res.render('invalid', {
-      error_message: 'error_message'
+      error_message: error_message;
     });
 }
 

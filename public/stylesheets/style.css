@@ -28,6 +28,15 @@ p {
   font-size: 2vmin;
 }
 
+.sorting_asc{
+  font-size: 2vmin;
+
+}
+.sorting_desc{
+  font-size: 2vmin;
+
+}
+
 .centered_table{
 	margin: auto;
     width: 75%;

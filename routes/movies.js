@@ -41,9 +41,9 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
 
   if(req.file){
 
-    console.log("THE FILE EXTENSION OF... FILE WAS" + path.extname(req.file));
-
     var result_name = req.file['filename'];
+    console.log('result_name')
+
 
     models.Movie.create({
       movie_title: req.body.movie_title,

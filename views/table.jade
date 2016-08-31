@@ -101,6 +101,11 @@ block content
             { "data": "picture" },
             { "data": null }],
 
+          "columnDefs": [ {
+            "targets": [ 4, 5 ],
+            "orderable": false
+          } ],
+
           "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
           "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
             var imgLink = aData['picture']; // if your JSON is 3D

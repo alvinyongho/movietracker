@@ -306,36 +306,29 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
     renderError(res, "Invalid title. Make sure it is between 1 to 50 characters long.");
   }
 
-  if(!validator.isLength(req.body.studio, {min:1, max: 25})){
+  else if(!validator.isLength(req.body.studio, {min:1, max: 25})){
     renderError(res, "Invalid title. Make sure it is between 1 to 25 characters long.");
   }
 
-  if(!validator.isCurrency(req.body.box_office)){
+  else if(!validator.isCurrency(req.body.box_office)){
     renderError(res, "Invalid Currency. Make sure it's in the format including dollar symbol: " +  String.fromCharCode(36) +'100.00');
   }
 
-  if(!validator.isInt(req.body.year,{min: 1990, max: 2016})){
+  else if(!validator.isInt(req.body.year,{min: 1990, max: 2016})){
     renderError(res, "Invalid Year. Make sure it's in the format: between 1990 and 2016");
   }
 
-  if(req.file){
-    console.log("WE HAVE A FILE!!!");
-    result_name = req.file['filename'];
-
-
-    // console.log("@@@@ THE RESULT NAME OF UPDATE IS" + result_name);
-    // console.log("The movie title is " + req.body.movie_title)
-    // console.log("The movie id is " + req.params.movie_id)
-    // console.log("ADDING PICTURE TO DIRECTORY   " + 'images/uploads/' + result_name );
-
-    updateMovie(req, res, result_name, 'images/uploads/' + result_name)
-
+  else if(!req.file){
+    renderError(res, 'No file found. Please try again.')
 
   } else {
 
+    result_name = req.file['filename'];
+    updateMovie(req, res, result_name, 'images/uploads/' + result_name)
+  }
 
 
-    renderError(res, 'No file found. Please try again.')
+
 
 
     // models.Movie.findById(req.params.movie_id).then(function(movie) {

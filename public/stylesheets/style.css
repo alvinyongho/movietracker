@@ -24,10 +24,12 @@ p {
 }
 
 
-.sorting {
-  font-size: 2vmin;
+.movie-table {
+  margin: auto;
+  width: 75%;
+  padding:10px;
 }
-
+/*
 .sorting_asc{
   font-size: 2vmin;
 
@@ -39,7 +41,7 @@ p {
 
 .btn{
   font-size: 2vmin;
-}
+}*/
 
 .centered_table{
 	margin: auto;

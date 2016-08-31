@@ -44,6 +44,16 @@ img{
 	max-width: 100%;
 }
 
+#status-bar{
+	width:100%;
+	/*margin: 10px;*/
+	/*font-family: 'Roboto', sans-serif;*/
+	text-align: center;
+	/* Rectangle: */
+    background-color: rgba(200, 71, 115, .04);
+	max-width: 100%;
+}
+
 
 
 #footer{

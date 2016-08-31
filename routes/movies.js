@@ -348,8 +348,18 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
 
   } else {
 
-    result_name = req.file['filename'];
-    updateMovie(req, res, result_name, 'images/uploads/' + result_name)
+
+    var result_name = req.file['filename'];
+    var valid_extensions = ['.jpg', '.jpeg', '.bmp', '.png', '.gif'];
+
+
+    if (!(valid_extensions.indexOf(path.extname(req.file['filename'])) > -1)) {
+        renderError(res, "Invalid File type");
+  
+    } else {
+      result_name = req.file['filename'];
+      updateMovie(req, res, result_name, 'images/uploads/' + result_name);
+    }
   }
 
 

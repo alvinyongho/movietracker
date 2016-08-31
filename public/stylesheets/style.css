@@ -24,3 +24,16 @@ img{
 	text-align:center;
 	margin: 20px;
 }
+
+#header{
+	position: fixed;
+	width:100%;
+	/*margin: 10px;*/
+	/*font-family: 'Roboto', sans-serif;*/
+	text-align: center;
+	/* Rectangle: */
+    background-color: rgba(46, 71, 115, .04);
+    padding:15px;
+	margin:0px;
+	max-width: 100%;
+}

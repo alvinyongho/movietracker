@@ -2,12 +2,11 @@ extends layout
 
 
 block content
-  h1 $$$Gross Movies
 
+  div (class=row id="header")
+    h1 $$$Gross Movies
+    button(class="btn btn-default centered_button" id="new-entry" type="button" data-toggle="modal" data-target="#createModal") Add Movie
 
-  button(class="btn btn-default centered_button" id="new-entry" type="button" data-toggle="modal" data-target="#createModal") Add Movie
-
-  br
   
   div(class="modal fade" id="createModal" tabindex="-1" role="dialog")
     div(class="modal-dialog" role="document")

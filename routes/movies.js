@@ -70,7 +70,13 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
     var result_name = req.file['filename'];
 
 
-    console.log(path.extname(result_name));
+    var valid_extensions = ['.jpg', '.jpeg', '.bmp', '.png', '.gif']
+    ]
+
+    function findExtension(extension) { 
+      return extension;
+    }
+    console.log(valid_extensions.find(path(req.file['filename'])));
 
     // check if the file type is not ok
 

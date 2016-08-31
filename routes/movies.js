@@ -70,8 +70,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
     var result_name = req.file['filename'];
 
 
-    var valid_extensions = ['.jpg', '.jpeg', '.bmp', '.png', '.gif']
-    ]
+    var valid_extensions = ['.jpg', '.jpeg', '.bmp', '.png', '.gif'];
 
     function findExtension(extension) { 
       return extension;

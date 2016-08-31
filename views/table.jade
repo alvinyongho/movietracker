@@ -3,14 +3,10 @@ extends layout
 
 block content
     
-  div(id="status-bar")
-    The table has been recently updated. Please 
-    a(href="/movies/table/datatable") refresh 
-    this page to see changes!
 
   div(id="header")
     h1 $$$Gross Movies
-    button(class="btn btn-default centered_button" id="new-entry" type="button" data-toggle="modal" data-target="#createModal") Add Movie
+    button(class="btn btn-default centered_button" type="button" data-toggle="modal" data-target="#createModal") Add Movie
 
 
 
@@ -68,7 +64,7 @@ block content
 
 
   div(id="footer")
-    button(class="btn btn-default centered_button" id="new-entry" type="button" data-toggle="modal" data-target="#createModal") Add Movie
+    button(class="btn btn-default centered_button" type="button" data-toggle="modal" data-target="#createModal") Add Movie
   
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
   script(src='https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/datatables.min.js')

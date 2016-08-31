@@ -27,6 +27,8 @@ p {
 #movie-table {
   margin: auto;
   width: 75%;
+  text-align: center;
+
 }
 
 #movie-table-head{

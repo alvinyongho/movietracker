@@ -44,3 +44,15 @@ img{
 	max-width: 100%;
 }
 
+
+
+#footer{
+	width:100%;
+	/*margin: 10px;*/
+	/*font-family: 'Roboto', sans-serif;*/
+	text-align: center;
+	/* Rectangle: */
+    /*background-color: rgba(46, 71, 115, .04);*/
+	margin-top: 10px;
+	max-width: 100%;
+}

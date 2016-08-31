@@ -49,7 +49,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
 
 
   if(!validator.isCurrency(req.body.box_office)){
-    renderError(res, 'Invalid Currency. Make sure it's in the format' +  String.fromCharCode(36) +'100.00');
+    renderError(res, "Invalid Currency. Make sure it's in the format" +  String.fromCharCode(36) +'100.00');
   }
   if(req.file){
 

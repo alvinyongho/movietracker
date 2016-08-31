@@ -12,7 +12,7 @@ var upload_dir = 'public/images/uploads/';
 
 
 
-function renderError(error_message){
+function renderError(res, error_message){
   res.render('invalid', {
       error_message: 'error_message'
     });
@@ -23,12 +23,6 @@ function renderError(error_message){
 var storage = multer.diskStorage({
   destination: upload_dir,
   filename: function (req, file, cb) {
-    
-    // console.log('MIME TYPE IS@@@@' + file.mimetype);
-
-    if(!file.mimetype.startsWith("image/")){
-      renderError('You did not upload an image!');
-    }
 
     crypto.pseudoRandomBytes(16, function (err, raw) {
       if (err) return cb(err)
@@ -58,6 +52,9 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
 
   if(req.file){
 
+    if(req.file.extname != '.jpg' || req.file.extname != '.png' || req.file.extname != '.jpeg' || req.file.extname != '.bmp' || req.file.extname != '.gif'){
+      renderError(res, 'You did not upload a valid filetype');
+    }
     var result_name = req.file['filename'];
 
 

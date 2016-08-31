@@ -319,6 +319,12 @@ router.post('/:movie_id/update', multer({ storage: storage, limits: file_limit }
   }
 
   else if(!req.file){
+
+    // CHECK IF PREVIOUS IMAGE EXIST FOR movie_id
+    models.Movie.findById(req.params.movie_id).then(function(movie) {
+      console.log("FOUND MOVIE!!!!!" + movie.picture)
+    }
+    // If none exists
     renderError(res, 'No file found. Please try again.')
 
   } else {

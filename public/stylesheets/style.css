@@ -52,6 +52,7 @@ img{
 	/* Rectangle: */
     background-color: rgba(200, 71, 115, .04);
 	max-width: 100%;
+	visibility: hidden;
 }
 
 

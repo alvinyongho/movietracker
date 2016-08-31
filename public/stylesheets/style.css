@@ -12,6 +12,17 @@ img{
     height: auto;
 }
 
+
+h1 {
+  font-size: 5.9vw;
+}
+h2 {
+  font-size: 3.0vh;
+}
+p {
+  font-size: 2vmin;
+}
+
 .centered_table{
 	margin: auto;
     width: 75%;

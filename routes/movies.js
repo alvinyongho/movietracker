@@ -291,7 +291,7 @@ function updateMovie(req, res, result_name, picture_dir){
   { where: {id: req.params.movie_id} }
 
   ).then(function() {
-    res.redirect('/movietracker');
+    res.redirect('/movies/table/datatable');
   });
 }
 

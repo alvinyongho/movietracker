@@ -45,7 +45,7 @@ router.get('/', function(req, res, next) {
 router.post('/create', multer({ storage: storage, limits: file_limit }).single('picture'), function(req, res) {
   
   // console.dir('THE FILE IS' + req.file);
-  if(!validator.isLength(req.body.movie_title, {min:1, max: 50})){
+  if(!validator.isLength(req.body.movie_title, {min:1, max: 50}) && !validator.isIn(req.body.movie_title, ['a', 'b', 'c'])){
         renderError(res, "Invalid title. Make sure it is between 1 to 50 characters long. Make sure it is valid A-z|0-9| or ,.?-");
 
   }

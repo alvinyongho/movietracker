@@ -16,6 +16,10 @@ var storage = multer.diskStorage({
     
     console.log('MIME TYPE IS@@@@' + file.mimetype);
 
+    if(file.mimetype.startsWith("image/")){
+      console.log('YES ITS AN IMAGE!!!!');
+    }
+
     crypto.pseudoRandomBytes(16, function (err, raw) {
       if (err) return cb(err)
 

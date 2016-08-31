@@ -22,16 +22,21 @@ block content
         div(class="modal-body")
           
           form(action="/movies/create", method="post", enctype="multipart/form-data")
-            p Movie Title:
-            input(type="text", name="movie_title")
-            p Studio:
-            input(type="text", name="studio")
-            p Year:
-            input(type="text", name="year")
-            p Box Office $:
-            input(type="text", name="box_office")
-            p Picture:
-            input(type="file", name="picture")
+            div(class="form-group")
+              label(for="movie-title-field") Movie Title:
+              input(id="movie-title-field" class="form-control" type="text", name="movie_title")
+            div(class="form-group")
+              label(for="movie-studio-field") Studio:
+              input(id="movie-studio-field" class="form-control" type="text", name="studio")
+            div(class="form-group")
+              label(for="movie-year-field") Year:
+              input(id="movie-year-field" class="form-control" type="text", name="year")
+            div(class="form-group")
+              label(for="movie-box-office-field") Box Office $:
+              input(id="movie-box-office-field" class="form-control" type="text", name="box_office")
+            div(class="form-group")
+              label(for="movie-picture-field") Poster Picture:
+              input(id="movie-picture-field" type="file", name="picture")
 
 
             div(class="modal-footer")

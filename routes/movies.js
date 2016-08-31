@@ -6,6 +6,8 @@ var path = require('path')
 const crypto = require('crypto');
 var async = require('async');
 
+var validator = require('validator');
+
 var upload_dir = 'public/images/uploads/';
 
 var storage = multer.diskStorage({
@@ -35,6 +37,7 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
   // console.dir('THE FILE IS' + req.file);
 
 
+  console.log("THE FILE EXTENSION OF... FILE WAS" + path.extname(req.file));
 
 
   if(req.file){
@@ -48,20 +51,28 @@ router.post('/create', multer({ storage: storage, limits: file_limit }).single('
       box_office: req.body.box_office,
       picture: 'images/uploads/' + result_name
     }).then(function() {
-      res.redirect('/movietracker');
+      res.redirect('/movies/table/datatable');
     });
 
   } else {
 
-    models.Movie.create({
-      movie_title: req.body.movie_title,
-      studio: req.body.studio,
-      year: req.body.year,
-      box_office: req.body.box_office,
-      picture: 'null'
-    }).then(function() {
-      res.redirect('/movietracker');
+
+    // Direct to error page
+    res.render('invalid', {
+      error_message: 'No file uploaded. Please try again.'
     });
+
+
+
+    // models.Movie.create({
+    //   movie_title: req.body.movie_title,
+    //   studio: req.body.studio,
+    //   year: req.body.year,
+    //   box_office: req.body.box_office,
+    //   picture: 'null'
+    // }).then(function() {
+    //   res.redirect('/movietracker');
+    // });
 
   }
 
